@@ -19,18 +19,20 @@ parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4, END=5;
 reg [2:0] ncounter;
 reg complete;
 
-always @ (posedge clk) begin
-  if(reset | bist_end) begin
-    state       <= IDLE;
-    toggle      <= 0;
-    complete    <= 0;
-    ncounter    <= 1;
-    nclock      <= 5;
-  end
-  else if(start & !(reset | bist_end))
-    state       <= START;
-  else
-    state       <= next_state;
+always @ (posedge clk, posedge start) begin
+  if(clk) begin
+    if(reset | bist_end) begin
+        state       <= IDLE;
+        toggle      <= 0;
+        complete    <= 0;
+        ncounter    <= 1;
+        nclock      <= 5;
+    end
+    else if(start & !(reset))
+        state       <= START;
+    else
+        state       <= next_state;
+    end
 end
 
 
