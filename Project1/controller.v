@@ -23,7 +23,7 @@ always @ (posedge clk) begin
     state   <= 0;
     toggle  <= 0;
     bist_end <= 0;
-    ncounter <= 0;
+    ncounter <= 1;
     nclock <= 5;
   end
   else
@@ -50,19 +50,19 @@ always @(*) begin
 end
 
 assign init = (state == INIT);
-assign running = (state == RUNNING) && (ncounter < nclock);
+assign running = (state == RUNNING) && (ncounter < nclock+1);
 assign finish = (state == FINISH); 
 // assign bist_end = (state == END)
 
 always @ (posedge clk) begin
   if(state == RUNNING) begin
-      if(ncounter <= ncounter) begin
+      if(ncounter < nclock-1) begin
         toggle = !toggle;
-        ncounter++;
       end
       else begin
-          toggle <= 0;
+        toggle <= 0;
       end
+      ncounter++;
   end
 end
 
