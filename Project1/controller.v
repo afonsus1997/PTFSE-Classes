@@ -14,13 +14,13 @@ module controller(
 
 reg [3:0] state, next_state; 
 reg [3:0] nclock;
-parameter IDLE=0, INIT=1, RUNNING=2, FINISH=3, END=4, BIST_END=5;
+parameter IDLE=0, INIT=1, RUNNING=2, FINISH=3, END=4;
 
 reg [2:0] ncounter;
 reg complete;
 
 always @ (posedge clk) begin
-  if(reset == 1) begin
+  if(reset | start) begin
     state   <= 0;
     toggle  <= 0;
     complete <= 0;
@@ -43,7 +43,7 @@ always @(*) begin
             if(ncounter == nclock)
                 next_state = FINISH;
         FINISH:
-            next_state = BIST_END;
+            next_state = END;
         
         default:
             next_state  = IDLE;
@@ -68,7 +68,7 @@ always @ (posedge clk) begin
 end
 
 always @ (negedge finish, posedge reset, posedge start) begin
-    if(!finish && state == BIST_END)
+    if(!finish && state == END)
         complete <= 1;
     else if (reset) 
         complete <= 0;
