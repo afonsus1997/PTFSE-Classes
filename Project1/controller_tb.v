@@ -34,6 +34,9 @@ module controller_tb;
         
         #3 START = 1;
         #3 START = 0;
+        #100
+        #3 START = 1;
+        #3 START = 0;
     end
     initial begin
         #300 $finish;
