@@ -24,12 +24,13 @@ always @ (posedge clk, posedge start) begin
     if(reset | bist_end) begin
         state       <= IDLE;
         toggle      <= 0;
-        complete    <= 0;
         ncounter    <= 1;
         nclock      <= 5;
     end
-    else if(start & !(reset))
+    else if(start & !(reset) & (state == IDLE)) begin
         state       <= START;
+        complete    <= 0;
+    end
     else
         state       <= next_state;
     end
@@ -53,10 +54,10 @@ always @(*) begin
     endcase
 end
 
-assign init = (state == INIT);
-assign running = (state == RUNNING) && (ncounter < nclock+1);
-assign finish = (state == FINISH); 
-assign bist_end = (complete & !finish) & !(reset | start) ;
+assign init     = (state == INIT);
+assign running  = (state == RUNNING) & (ncounter < nclock+1);
+assign finish   = (state == FINISH); 
+assign bist_end = (complete) & !(reset | start) ;
 
 always @ (posedge clk) begin
   if(state == RUNNING) begin
