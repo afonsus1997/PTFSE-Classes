@@ -19,8 +19,7 @@ parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4, END=5;
 reg [2:0] ncounter;
 reg complete;
 
-always @ (posedge clk, posedge start) begin
-  if(clk) begin
+always @ (posedge clk) begin
     if(reset | bist_end) begin
         state       <= IDLE;
         toggle      <= 0;
@@ -33,7 +32,6 @@ always @ (posedge clk, posedge start) begin
     end
     else
         state       <= next_state;
-    end
 end
 
 

@@ -2,9 +2,9 @@
 `timescale 1ns / 1ps
 
 //===========SET TEST==========
-// `define consequent_test
-// `define mid_start
-// `define start_reset
+`define consequent_test
+`define mid_start
+`define start_reset
 `define mid_reset
 
 module controller_tb;
