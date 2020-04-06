@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-// `define NCLOCK 5
 
 module controller(
 	input clk,
@@ -15,18 +14,20 @@ module controller(
 reg [3:0] state, next_state; 
 reg [3:0] nclock;
 parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4, END=5;
+parameter NCLOCK = 10;
 
-reg [2:0] ncounter;
+reg [$clog2(NCLOCK):0] ncounter;
 reg complete;
 reg toggle_r;
+reg reset_latch;
 
 always @ (posedge clk) begin
 	if(reset) begin
 		state       <= IDLE;
-		ncounter    <= 1;
-		nclock      <= 5;
+		nclock      <= NCLOCK;
+		complete    <= 0;
 	end
-	if(start & (state == IDLE)) begin
+	else if(start & (state == IDLE) & !reset_latch) begin
 		state       <= START;
 		complete    <= 0;
 	end
@@ -61,26 +62,34 @@ assign bist_end = (complete) & !(reset | start) ;
 assign toggle   = (state == RUNNING) & toggle_r;
 
 always @ (posedge clk) begin
-  if(reset | bist_end)
+	if(reset | bist_end) begin
 		toggle_r <= 0;
-  if(state == RUNNING) begin
-	if(ncounter < nclock-1) begin
-		toggle_r = !toggle_r;
-	end
-	else begin
-		toggle_r <= 0;
-	end
-	ncounter = ncounter + 1;
-  end
+		ncounter <= 0;
+	end	
+	if(state == RUNNING) begin
+		if(ncounter < nclock) begin
+			toggle_r = !toggle_r;
+		end
+		else begin
+			toggle_r <= 0;
+		end
+		ncounter <= ncounter + 1;
+  	end
 end
 
 always @ (negedge finish, posedge reset, posedge start) begin
 	if(!finish && state == END)
 		complete <= 1;
-	else if (reset) 
-		complete <= 0;
-	else if (start) 
-		complete <= 0;
+end
+
+always @ (posedge start) begin
+	if(start & !(reset)) begin
+		reset_latch <= 0;
+	end
+	else begin
+		reset_latch <= 1;
+	end
+
 end
 
 endmodule // controller

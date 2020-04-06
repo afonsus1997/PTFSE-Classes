@@ -3,9 +3,9 @@
 
 //===========SET TEST==========
 `define consequent_test
-// `define mid_start
-// `define start_reset
-// `define mid_reset
+`define mid_start
+`define start_reset
+`define mid_reset
 
 module controller_tb;
 
@@ -45,6 +45,7 @@ module controller_tb;
         //second normal start
         #13 START = 1;
         #13 START = 0;
+        #120
         //======consequent running proof========
         `endif
         
@@ -85,7 +86,7 @@ module controller_tb;
         #13 START = 0;
         #10
         RESET = 1;
-        #3
+        #13
         RESET = 0;
         #13
         //second normal start
