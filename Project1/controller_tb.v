@@ -41,7 +41,7 @@ module controller_tb;
         #13 RESET = 0;     
         #13 START = 1;
         #13 START = 0;
-        #100
+        #120
         //second normal start
         #13 START = 1;
         #13 START = 0;
@@ -58,7 +58,7 @@ module controller_tb;
         //second normal start
         #13 START = 1;
         #13 START = 0;
-        #100
+        #120
         //======mid start proof========
         `endif
 
@@ -74,7 +74,7 @@ module controller_tb;
         #13 START = 0;
         #13 START = 1;
         #13 START = 0; 
-        # 100
+        # 120
         //======start and reset HIGH test========
         `endif
 
@@ -91,7 +91,7 @@ module controller_tb;
         //second normal start
         #13 START = 1;
         #13 START = 0;
-        #100
+        #120
         //======mid start proof========
         `endif
 

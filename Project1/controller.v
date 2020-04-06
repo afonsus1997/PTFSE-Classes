@@ -21,12 +21,12 @@ reg complete;
 reg toggle_r;
 
 always @ (posedge clk) begin
-	if(reset | bist_end) begin
+	if(reset) begin
 		state       <= IDLE;
 		ncounter    <= 1;
 		nclock      <= 5;
 	end
-	if(start & !(reset) & (state == IDLE)) begin
+	if(start & (state == IDLE)) begin
 		state       <= START;
 		complete    <= 0;
 	end
@@ -46,7 +46,9 @@ always @(*) begin
 				next_state = FINISH;
 		FINISH:
 			next_state = END;
-		
+		END:
+			if(bist_end)
+				next_state = IDLE;	
 		default:
 			next_state  = IDLE;
 	endcase
