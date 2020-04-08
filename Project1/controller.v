@@ -12,8 +12,7 @@ module controller(
 );
 
 reg [3:0] state, next_state; 
-reg [3:0] nclock;
-parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4, END=5;
+parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4;
 parameter NCLOCK = 10;
 
 reg [$clog2(NCLOCK):0] ncounter;
@@ -24,12 +23,9 @@ reg reset_latch;
 always @ (posedge clk) begin
 	if(reset) begin
 		state       <= IDLE;
-		nclock      <= NCLOCK;
-		complete    <= 0;
 	end
 	else if(start & (state == IDLE) & !reset_latch) begin
 		state       <= START;
-		complete    <= 0;
 	end
 	else
 		state       <= next_state;
@@ -43,31 +39,28 @@ always @(*) begin
 		INIT:
 			next_state = RUNNING;
 		RUNNING:
-			if(ncounter == nclock)
+			if(ncounter == NCLOCK)
 				next_state = FINISH;
 		FINISH:
-			next_state = END;
-		END:
-			if(bist_end)
-				next_state = IDLE;	
+			next_state = IDLE;	
 		default:
 			next_state  = IDLE;
 	endcase
 end
 
 assign init     = (state == INIT);
-assign running  = (state == RUNNING) & (ncounter < nclock+1);
+assign running  = (state == RUNNING) & (ncounter < NCLOCK+1);
 assign finish   = (state == FINISH); 
 assign bist_end = (complete) & !(reset | start) ;
 assign toggle   = (state == RUNNING) & toggle_r;
 
 always @ (posedge clk) begin
-	if(reset | bist_end) begin
+	if(reset | (state == FINISH)) begin
 		toggle_r <= 0;
 		ncounter <= 0;
 	end	
 	if(state == RUNNING) begin
-		if(ncounter < nclock) begin
+		if(ncounter < NCLOCK) begin
 			toggle_r = !toggle_r;
 		end
 		else begin
@@ -77,9 +70,17 @@ always @ (posedge clk) begin
   	end
 end
 
-always @ (negedge finish, posedge reset, posedge start) begin
-	if(!finish && state == END)
-		complete <= 1;
+// always @ (negedge finish, posedge reset, posedge start) begin
+// 	if(!finish & (state == END) & !reset)
+// 		complete <= 1;
+// end
+
+always @ (negedge finish, posedge start, posedge reset) begin
+	if(reset | start)
+		complete = 0;
+	else
+		complete = 1;
+	
 end
 
 always @ (posedge start) begin

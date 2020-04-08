@@ -41,7 +41,7 @@ module controller_tb;
         #13 RESET = 0;     
         #13 START = 1;
         #13 START = 0;
-        #120
+        #125
         //second normal start
         #13 START = 1;
         #13 START = 0;
@@ -68,7 +68,7 @@ module controller_tb;
         #13 RESET = 0;     
         #13 START = 1;
         #13 START = 0;
-        #100
+        #115
         #13 RESET = 1;
         #13 START = 1;
         #13 RESET = 0;
@@ -84,7 +84,7 @@ module controller_tb;
         #13 RESET = 0;     
         #13 START = 1;
         #13 START = 0;
-        #10
+        #50
         RESET = 1;
         #13
         RESET = 0;
