@@ -100,7 +100,7 @@ module controller_tb;
 
     end
 
-    always 
+    always (*)
     #5  CLK =  ! CLK;
 
 endmodule

@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Documents/GitHub/PTFSE-Classes/Project1/controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Documents/GitHub/PTFSE-Classes/Project1/controller_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/Documents/GitHub/PTFSE-Classes/Project1/Vivado/Vivado.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
