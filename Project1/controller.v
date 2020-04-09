@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
-`define reportval
-//`define testval
+// `define reportval
+`define testval
 
 module controller(
 	input clk,

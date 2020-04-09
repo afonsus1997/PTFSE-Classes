@@ -2,14 +2,14 @@
 `timescale 1ns / 1ps
 
 //===========SET TEST==========
-`define normal
-`define consequent_test
-`define mid_start
-`define start_reset
+// `define normal
+// `define consequent_test
+// `define mid_start
+// `define start_reset
 `define mid_reset
 
- `define reportval
-//`define testval
+//  `define reportval
+`define testval
 
 module controller_tb;
 
