@@ -10,7 +10,7 @@
 
 //==========SET NCLOCK========
 `define reportval
-`define testval
+//`define testval
 
 module controller_tb;
 
