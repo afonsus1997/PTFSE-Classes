@@ -8,8 +8,8 @@
 `define start_reset
 `define mid_reset
 
-// `define reportval
-`define testval
+ `define reportval
+//`define testval
 
 module controller_tb;
 
