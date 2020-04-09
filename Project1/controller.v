@@ -1,5 +1,8 @@
 `timescale 1ns / 1ps
 
+// `define reportval
+`define testval
+
 module controller(
 	input clk,
 	input reset,
@@ -13,9 +16,14 @@ module controller(
 
 reg [3:0] state, next_state; 
 parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4;
+`ifdef reportval
+parameter NCLOCK = 650; //650 for group 2
+`endif
+`ifdef testval
 parameter NCLOCK = 10;
+`endif
 
-reg [$clog2(NCLOCK):0] ncounter;
+reg [$clog2(NCLOCK):0] ncounter; //for some reason this doesent work for the report numbers
 reg complete;
 reg toggle_r;
 reg reset_latch;

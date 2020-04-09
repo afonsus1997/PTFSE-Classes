@@ -2,10 +2,14 @@
 `timescale 1ns / 1ps
 
 //===========SET TEST==========
+`define normal
 `define consequent_test
 `define mid_start
 `define start_reset
 `define mid_reset
+
+// `define reportval
+`define testval
 
 module controller_tb;
 
@@ -13,6 +17,10 @@ module controller_tb;
     reg START;
     reg RESET;
     wire INIT, RUNNING, TOGGLE, FINISH, BIST_END;
+    integer pulsecount = 0;
+    integer runningcount = 0;
+
+    parameter NCLOCK = 650; //650 for group 2
 
     controller uut(
         .clk(CLK),
@@ -33,15 +41,51 @@ module controller_tb;
         CLK = 0;
     	START = 0;
     	RESET = 0;
-    end           
+    end
+
+    always @ (posedge TOGGLE) begin
+        pulsecount = pulsecount +1; 
+    end
+
+    always @ (posedge CLK) begin
+        if(RUNNING)
+            runningcount = runningcount + 1;
+    end
+
     initial begin
+        //first start
+
+        `ifdef normal
+        #13 RESET = 1;
+        #13 RESET = 0;     
+        #13 START = 1;
+        #13 START = 0;
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        `endif
+        $display("Number of pulses: %d",pulsecount);
+        $display("Time of running: %d clock pulses",runningcount-1); //-1 because the first rising edge of the clock doesent count
+        pulsecount = 0;
+        runningcount = 0;
+        //======Normal test========
+        `endif
+        
+        
         //first start
         `ifdef consequent_test
         #13 RESET = 1;
         #13 RESET = 0;     
         #13 START = 1;
         #13 START = 0;
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
         #125
+        `endif
         //second normal start
         #13 START = 1;
         #13 START = 0;
@@ -59,7 +103,12 @@ module controller_tb;
         //second normal start
         #13 START = 1;
         #13 START = 0;
-        #120
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        `endif
         //======mid start proof========
         `endif
 
@@ -75,7 +124,12 @@ module controller_tb;
         #13 START = 0;
         #13 START = 1;
         #13 START = 0; 
-        # 120
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        `endif
         //======start and reset HIGH test========
         `endif
 
@@ -92,7 +146,12 @@ module controller_tb;
         //second normal start
         #13 START = 1;
         #13 START = 0;
-        #120
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        `endif
         //======mid start proof========
         `endif
 
@@ -100,7 +159,11 @@ module controller_tb;
 
     end
 
-    always (*)
-    #5  CLK =  ! CLK;
+    always
+        #5  CLK =  ! CLK;
+
+
+    
+
 
 endmodule
