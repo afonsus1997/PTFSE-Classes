@@ -67,7 +67,7 @@ always @ (posedge clk) begin
 		toggle_r <= 0;
 		ncounter <= 0;
 	end	
-	if(state == RUNNING) begin
+	else if(state == RUNNING) begin
 		if(ncounter < NCLOCK) begin
 			toggle_r <= !toggle_r;
 		end
