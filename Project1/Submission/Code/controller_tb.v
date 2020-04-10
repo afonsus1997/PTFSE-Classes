@@ -67,7 +67,7 @@ module controller_tb;
         `ifdef testval
         #125
         `endif
-        $display("Number of pulses: %d",pulsecount);
+        $display("Number of pulses: %d pulses." ,pulsecount);
         $display("Time of running: %d clock pulses",runningcount-1); //-1 because the first rising edge of the clock doesent count
         pulsecount = 0;
         runningcount = 0;

@@ -20,10 +20,10 @@ parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4;
 parameter NCLOCK = 650; //650 for group 2
 `endif
 `ifdef testval
-parameter NCLOCK = 10;
+parameter NCLOCK = 10; //this needs to be commented in order to generate code coverage. Xcellium does not recognize define parameters
 `endif
 
-reg [$clog2(NCLOCK):0] ncounter; //for some reason this doesent work for the report numbers
+reg [$clog2(NCLOCK):0] ncounter;
 reg complete;
 reg toggle_r;
 reg reset_latch;
@@ -79,11 +79,6 @@ always @ (posedge clk) begin
 		ncounter <= ncounter + 1;
   	end
 end
-
-// always @ (negedge finish, posedge reset, posedge start) begin
-// 	if(!finish & (state == END) & !reset)
-// 		complete <= 1;
-// end
 
 always @ (negedge finish, posedge start, posedge reset) begin
 	if(reset | start)
