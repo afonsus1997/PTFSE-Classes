@@ -42,8 +42,6 @@ end
 
 always @(*) begin
 	case (state)
-		IDLE:
-			next_state = IDLE;
 		START:
 			next_state = INIT;
 		INIT:
