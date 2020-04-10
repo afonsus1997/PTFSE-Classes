@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
-// `define reportval
-`define testval
+`define reportval
+//`define testval
 
 module controller(
 	input clk,
@@ -14,7 +14,7 @@ module controller(
 	output wire bist_end
 );
 
-reg [3:0] state, next_state; 
+reg [2:0] state, next_state; 
 parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4;
 `ifdef reportval
 parameter NCLOCK = 650; //650 for group 2
@@ -42,6 +42,8 @@ end
 
 always @(*) begin
 	case (state)
+		IDLE:
+			next_state = IDLE;
 		START:
 			next_state = INIT;
 		INIT:
@@ -49,6 +51,8 @@ always @(*) begin
 		RUNNING:
 			if(ncounter == NCLOCK)
 				next_state = FINISH;
+			else
+				next_state = RUNNING;
 		FINISH:
 			next_state = IDLE;	
 		default:

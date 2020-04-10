@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Fri Apr 10 18:09:43 2020
+| Date         : Fri Apr 10 18:43:54 2020
 | Host         : DESKTOP-CDGJHCI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file controller_utilization_synth.rpt -pb controller_utilization_synth.pb
 | Design       : controller
@@ -33,9 +33,9 @@ Table of Contents
 | Slice LUTs*             |   26 |     0 |     41000 |  0.06 |
 |   LUT as Logic          |   26 |     0 |     41000 |  0.06 |
 |   LUT as Memory         |    0 |     0 |     13400 |  0.00 |
-| Slice Registers         |   20 |     0 |     82000 |  0.02 |
+| Slice Registers         |   17 |     0 |     82000 |  0.02 |
 |   Register as Flip Flop |   17 |     0 |     82000 |  0.02 |
-|   Register as Latch     |    3 |     0 |     82000 | <0.01 |
+|   Register as Latch     |    0 |     0 |     82000 |  0.00 |
 | F7 Muxes                |    0 |     0 |     20500 |  0.00 |
 | F8 Muxes                |    0 |     0 |     10250 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 4     |          Yes |           - |        Reset |
+| 1     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 16    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -152,13 +152,12 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |   16 |        Flop & Latch |
-| LUT6     |    9 |                 LUT |
-| LUT3     |    9 |                 LUT |
-| LUT4     |    8 |                 LUT |
+| LUT6     |   10 |                 LUT |
+| LUT4     |    7 |                 LUT |
+| LUT3     |    7 |                 LUT |
+| LUT5     |    6 |                 LUT |
 | OBUF     |    5 |                  IO |
-| LUT2     |    5 |                 LUT |
-| LUT5     |    4 |                 LUT |
-| LDCE     |    3 |        Flop & Latch |
+| LUT2     |    3 |                 LUT |
 | IBUF     |    3 |                  IO |
 | BUFG     |    2 |               Clock |
 | LUT1     |    1 |                 LUT |
