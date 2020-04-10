@@ -35,3 +35,9 @@ Submission files for the digital controller project.
 ```controller.v``` - Main controller module code
 
 ```controller_tb.v``` - Test bench for controller module
+
+
+
+### Other information
+
+The full source of the project alongside the changes made throughout its development is present on [Github](https://github.com/afonsus1997/PTFSE-Classes) (private until deadline expiration).
