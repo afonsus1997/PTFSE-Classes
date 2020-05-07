@@ -1,0 +1,7 @@
+# Cadence Encounter(R) RTL Compiler
+#   version RC14.25 - v14.20-s046_1 (64-bit) built Aug 11 2015
+#
+
+set_attribute lib_search_path [list /opt/ic_tools/pdk/ams_c35_410/liberty/c35_3.3V]
+set_attribute library [list c35_CORELIB_TYP.lib]
+set_attribute hdl_search_path {.}

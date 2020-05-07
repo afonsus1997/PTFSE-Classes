@@ -1,0 +1,65 @@
+
+# Include a # in the beginning of the next line to run without graphical interface
+#GUI = -gui -access +r
+
+# 2
+hal:
+	hal -gui b01.v
+
+# 3
+rc:
+	rc -f synthesis.tcl
+	sed -i '1s/^/`timescale 1ns\/1ps /' b01_syn.v
+
+# 4a
+sim_rtl:
+	xrun $(GUI) -l verilog.log b01.v b01_tb.v
+
+# 4b
+sim_syn:
+	xrun $(GUI) -l verilog.log\
+		-v /opt/ic_tools/pdk/ams_c35_410/verilog/udp.v\
+		-v /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v\
+		b01_syn.v\
+		b01_tb.v
+
+# 5
+dft:
+	rc -f synthesis_dft.tcl
+	sed -i '1s/^/`timescale 1ns\/1ps /' b01_scan_syn.v
+	
+# 6
+sim_faults:
+	# Elaborate
+	xrun -clean -elaborate\
+ 		-define functional\
+		-fault_file fault.file\
+		-fault_top b01\
+		-fault_logfile fault_xrun_elab.log\
+		-v /opt/ic_tools/pdk/ams_c35_410/verilog/udp.v\
+		-v /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v\
+		b01_syn.v\
+		b01_tb.v
+	# Generate the fault list
+	xfsg -fault_type SA0+SA1\
+		-fault_list fault_list\
+		-fault_work fault_db
+	# Remove UNCONNECTED signals (e.g. outputs of FFs)
+	sed '/UNCONNECTED/d' -i fault_list_1.tcl
+	# Perform fault simulation
+	xrun -R -fault_concurrent\
+		-nospecify -notimingchecks -delay_mode zero -run -exit\
+		-define functional\
+		-input strobes.tcl\
+		-input fault_list_1.tcl\
+		-fault_logfile fault_xrun_sim.log
+	# Generate the report
+	xfr -fault_work fault_db\
+		-fault_format equiv\
+		-fault_report fault_report.txt\
+		-log xfr.log
+		
+clean:
+	rm -rf .simvision .hal* fault_db fv libscore_work waves.shm xcelium.d b01_gates.txt b01_scan* b01.sdc b01_syn.v b01_timing.txt\
+		dft_rules.report fault_list_1.tcl fault_report.txt fault_xrun_elab.log hal.* rc.* *.log *.history *.key 
+	
