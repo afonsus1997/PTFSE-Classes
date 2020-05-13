@@ -22,7 +22,6 @@ module controller_tb;
         $dumpvars();
         clock = 0;
         reset = 0;
-        
     end
 
     initial begin
@@ -36,7 +35,6 @@ module controller_tb;
         wait (done == 1)
         $display("End in %d iterations" ,niter);
         $display("Should be 2^4-1 = %d" ,2**4-1);
-        
     end
 
     always @ (posedge clock) begin
@@ -49,9 +47,7 @@ module controller_tb;
                 $display("LFSR output: %d" ,lfsr_out_w);
                 niter++;  
             end
-                
         end
-
     end
 
     initial begin
