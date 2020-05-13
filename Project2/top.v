@@ -21,12 +21,16 @@ module top(
     output pass_fail;
 );
 
-    wire lfsr_request1_w;
-    wire lfsr_request2_w;
-    wire lfsr_request3_w;
-    wire lfsr_request4_w;
-
     wire misr_grant_o_w;
+    
+    wire [3:0] lsfr_in_bus_w;
+    wire [3:0] request_bus_w;
+    wire [3:0] input_mux_out_w;
+    wire circuit_mode_w;
+    assign request_bus_w[0] = request1;
+    assign request_bus_w[1] = request2;
+    assign request_bus_w[2] = request3;
+    assign request_bus_w[3] = request4;
 
 
     controller bist_controller(
@@ -37,32 +41,32 @@ module top(
         .pass_fail(pass_fail)
         );
 
-    lfsr bist_lfsr(
-        .request1(request1),
-        .request2(request1),
-        .request3(request1),
-        .request4(request1),
+    lfsrmux mux1(
+        .in(request_bus_w),
+        .lsfr(lsfr_in_bus_w),
+        .out(input_mux_out_w),
+        .mode(circuit_mode_w)
+    );
 
-        .lfsr_request1(lfsr_request1_w),
-        .lfsr_request2(lfsr_request1_w),
-        .lfsr_request3(lfsr_request1_w),
-        .lfsr_request4(lfsr_request1_w)
+    lfsr bist_lfsr(
+        .clk(clock),
+        .rst(reset),
+        .out(lsfr_in_bus_w)
     );
 
     circuito06 uut(
         .clock(clock), 
         .reset(reset), 
-        .request1(lfsr_request1_w), 
-        .request2(lfsr_request1_w), 
-        .request3(lfsr_request1_w), 
-        .request4(lfsr_request1_w), 
+        .request1(input_mux_out_w[0]), 
+        .request2(input_mux_out_w[1]), 
+        .request3(input_mux_out_w[2]), 
+        .request4(input_mux_out_w[3]), 
         .grant_o(misr_grant_o_w)
-        );
+    );
 
     misr bist_misr(
-        .grant_o(misr_grant_o_w)
-        .misr_grant_o(grant_o)
-    )
+
+    );
 
 
 endmodule

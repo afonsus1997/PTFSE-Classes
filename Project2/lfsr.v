@@ -1,23 +1,29 @@
 
-
 module lfsr(
-    // inputs relevant to the given circuit for the lfsr
-    input request1; 
-    input request2; 
-    input request3; 
-    input request4; 
-    
-    // outputs relevant to the lfsr
-    output lfsr_request1;
-    output lfsr_request2;
-    output lfsr_request3;
-    output lfsr_request4;
-    
+    input clk,
+    input rst,
+    output [4:1] out
 );
 
-    assign lfsr_request1 = request1;
-    assign lfsr_request2 = request2;
-    assign lfsr_request3 = request3;
-    assign lfsr_request4 = request4;
+    parameter seed = 4'b1111;
+
+    reg [4:1] dff;
+
+    assign out[1] = dff[1];
+    assign out[2] = dff[2];
+    assign out[3] = dff[3];
+    assign out[4] = dff[4];
+
+
+
+    always @ (posedge clk, posedge rst) begin
+        if(rst) begin
+            dff <= seed;
+        end
+        else begin
+            dff <= {dff[4-1:1], dff[4] ^ dff[3]};
+        end
+
+    end
 
 endmodule
