@@ -33,11 +33,8 @@ module top(
         .clk(clock),
 	    .reset(reset),
 	    .start(start),
-	    .init(),
-	    .running(),
-	    .toggle(),
-	    .finish(),
-	    .bist_end(bist_end)
+	    .bist_end(bist_end),
+        .pass_fail(pass_fail)
         );
 
     lfsr bist_lfsr(

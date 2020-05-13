@@ -7,11 +7,8 @@ module controller(
 	input clk,
 	input reset,
 	input start,
-	output init,
-	output running,
-	output toggle,
-	output finish,
-	output wire bist_end
+	output bist_end,
+	output pass_fail
 );
 
 reg [2:0] state, next_state; 
