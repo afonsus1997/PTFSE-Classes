@@ -4,10 +4,10 @@ module lfsr(
     input rst,
     output [4:1] out
 );
-
+    parameter NBIT = 4;
     parameter seed = 4'b1111;
 
-    reg [4:1] dff;
+    reg [NBIT:1] dff;
 
     assign out[1] = dff[1];
     assign out[2] = dff[2];
@@ -16,12 +16,12 @@ module lfsr(
 
 
 
-    always @ (posedge clk, posedge rst) begin
+    always @ (posedge clk) begin
         if(rst) begin
             dff <= seed;
         end
         else begin
-            dff <= {dff[4-1:1], dff[4] ^ dff[3]};
+            dff <= {dff[NBIT-1:1], dff[4] ^ dff[3]};
         end
 
     end

@@ -35,6 +35,7 @@ module controller_tb;
         start = 1;
         wait (done == 1)
         $display("End in %d iterations" ,niter);
+        $display("Should be 2^4-1 = %d" ,2**4-1);
         
     end
 
