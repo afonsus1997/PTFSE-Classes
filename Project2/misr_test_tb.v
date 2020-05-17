@@ -1,26 +1,24 @@
 `timescale 1ns / 1ps
 
-module lfsr_test_tb;
+module misr_test_tb;
     integer start = 0;
     integer seed = 0;
-    integer in_seed = 4'b0011;
     integer niter = 0;
     integer done = 0;
-    wire [3:0] lfsr_out_w;
+    wire [6:0] signature_out_w;
     reg reset;
     reg clock;
-    reg [3:0] out_read;
 
-    lfsr uut(
+    misr uut(
         .clk(clock),
         .rst(reset),
-        .seed(in_seed),
-        .out(lfsr_out_w)
+        .grant_o(0),
+        .signature(signature_out_w)
     );
 
 
     initial begin
-        $dumpfile("lsfr_test.vcd");
+        $dumpfile("misr_test.vcd");
         $dumpvars();
         clock = 0;
         reset = 0;
@@ -31,29 +29,29 @@ module lfsr_test_tb;
         reset = 1;
         #3
         reset = 0;
-        seed = lfsr_out_w;
+        seed = signature_out_w;
         $display("Initial seed: %d" , seed);
         start = 1;
         wait (done == 1)
         $display("End in %d iterations" ,niter);
-        $display("Should be 2^4-1 = %d" ,2**4-1);
+        $display("Should be 2^6-1 = %d" ,2**6-1);
     end
 
     always @ (posedge clock) begin
         if(start) begin
-            if(lfsr_out_w == seed && niter != 0) begin
+            if(signature_out_w == seed && niter != 0) begin
                 done = 1;
                 start = 0;
             end
             else begin
-                $display("LFSR output: %d" ,lfsr_out_w);
+                $display("MISR output: %d" ,signature_out_w);
                 niter++;  
             end
         end
     end
 
     initial begin
-        #100 $finish;
+        #10000 $finish;
     end
 
     always

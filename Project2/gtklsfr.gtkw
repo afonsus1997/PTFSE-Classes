@@ -1,24 +1,27 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Wed May 13 21:00:18 2020
+[*] Sat May 16 17:04:53 2020
 [*]
 [dumpfile] "/mnt/Github/PTFSE-Classes/Project2/lsfr_test.vcd"
-[dumpfile_mtime] "Wed May 13 20:59:51 2020"
-[dumpfile_size] 1762
+[dumpfile_mtime] "Sat May 16 17:03:20 2020"
+[dumpfile_size] 1151
 [savefile] "/mnt/Github/PTFSE-Classes/Project2/gtklsfr.gtkw"
-[timestart] 100
-[size] 958 600
-[pos] -1 -1
+[timestart] 0
+[size] 1000 600
+[pos] 245 -24
 *-15.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[treeopen] controller_tb.
+[treeopen] lfsr_test_tb.
 [sst_width] 212
 [signals_width] 94
 [sst_expanded] 1
 [sst_vpaned_height] 148
 @28
-controller_tb.uut.clk
-controller_tb.uut.rst
-@23
-controller_tb.uut.out[4:1]
+lfsr_test_tb.clock
+@29
+lfsr_test_tb.uut.seed
+@28
+lfsr_test_tb.uut.rst
+@22
+lfsr_test_tb.uut.out[3:0]
 [pattern_trace] 1
 [pattern_trace] 0

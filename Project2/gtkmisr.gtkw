@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sun May 17 17:16:27 2020
+[*]
+[dumpfile] "/mnt/Github/PTFSE-Classes/Project2/misr_test.vcd"
+[dumpfile_mtime] "Sun May 17 17:15:36 2020"
+[dumpfile_size] 60317
+[savefile] "/mnt/Github/PTFSE-Classes/Project2/gtkmisr.gtkw"
+[timestart] 0
+[size] 958 901
+[pos] 0 0
+*-14.000000 268200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] misr_test_tb.
+[sst_width] 212
+[signals_width] 211
+[sst_expanded] 1
+[sst_vpaned_height] 256
+@28
+misr_test_tb.clock
+@420
+misr_test_tb.seed
+@28
+misr_test_tb.reset
+@23
+misr_test_tb.uut.dff[5:0]
+@22
+misr_test_tb.uut.signature[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

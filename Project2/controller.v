@@ -7,6 +7,10 @@ module controller(
 	input clk,
 	input reset,
 	input start,
+	output init,
+	output toggle,
+	output running,
+	output finish,
 	output bist_end,
 	output pass_fail
 );
@@ -56,7 +60,7 @@ always @(*) begin
 end
 
 assign init     = (state == INIT);
-assign running  = (state == RUNNING) & (ncounter < NCLOCK+1);
+assign running  = (state == RUNNING) & (ncounter < NCLOCK);
 assign finish   = (state == FINISH); 
 assign bist_end = (complete) & !(reset | start) ;
 assign toggle   = (state == RUNNING) & toggle_r;
@@ -67,7 +71,7 @@ always @ (posedge clk) begin
 		ncounter <= 0;
 	end	
 	else if(state == RUNNING) begin
-		if(ncounter < NCLOCK) begin
+		if(ncounter < NCLOCK-1) begin
 			toggle_r <= !toggle_r;
 		end
 		else begin
@@ -77,20 +81,26 @@ always @ (posedge clk) begin
   	end
 end
 
-always @ (negedge finish, posedge start, posedge reset) begin
-	if(reset | start)
-		complete = 0;
+wire complete_c;
+assign complete_c = reset | start;
+
+always @ (negedge finish) begin
+	if(complete_c)
+		complete <= 0;
 	else
-		complete = 1;
+		complete <= 1;
 	
 end
 
+wire latch_c;
+assign latch_c = start ^ (reset);
+
 always @ (posedge start) begin
-	if(start & !(reset)) begin
-		reset_latch <= 0;
+	if(latch_c) begin
+		reset_latch <= 1;
 	end
 	else begin
-		reset_latch <= 1;
+		reset_latch <= 0;
 	end
 
 end
