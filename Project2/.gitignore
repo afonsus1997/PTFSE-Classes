@@ -1,1 +1,3 @@
 CadenceFiles/
+*.out
+*.vcd
