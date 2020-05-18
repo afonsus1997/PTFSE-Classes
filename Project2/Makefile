@@ -21,6 +21,16 @@ misr_test_wave:
 	@./misr_test.out 
 	@gtkwave misr_test.vcd gtkmisr.gtkw &
 
+misr_seed_test:
+	@iverilog misr_test_tb2.v misr.v lfsr.v -o misr_test.out
+	@./misr_test.out 
+	
+
+misr_seed_test_wave:
+	@iverilog misr_test_tb2.v misr.v lfsr.v -o misr_test.out
+	@./misr_test.out 
+	@gtkwave misr_test.vcd gtkmisr.gtkw &
+
 controller_test:
 	@iverilog controller_tb.v controller.v -o controller_test.out
 	@./controller_test.out 
