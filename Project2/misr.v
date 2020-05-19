@@ -1,14 +1,15 @@
-module misr(
-    input clk,
-    input rst,
-    input scan_in,
-    input[3:0] grant_o,
-    output[NBIT-1:0] signature,
-    output scan_out
-);
+module misr(clk, rst, scan_in, grant_o, signature, scan_out);
 
     parameter NBIT = 8;
     parameter seed = 8'b11111111;
+
+    input clk;
+    input rst;
+    input scan_in;
+    input[3:0] grant_o;
+    output[NBIT-1:0] signature;
+    output scan_out;
+
     reg [NBIT-1:0] dff;
 
     assign signature = dff;

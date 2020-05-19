@@ -1,19 +1,19 @@
 
-module top(
-    // io relevant to the given circuit
-    input clock,
-    input reset,
-    input request1, 
-    input request2, 
-    input request3, 
-    input request4, 
-    output[3:0] grant_o,
+module top(clock, reset, request1, request2, request3, request4, lfsr_seed, grant_o, bist_start ,bist_end, signature_out, pass_fail);
+    //had to go back to old format due to hal :(
+    input clock;
+    input reset;
+    input request1;
+    input request2; 
+    input request3; 
+    input request4;
+    input [3:0] lfsr_seed;
+    output[3:0] grant_o;
     // io relevant to the bist controller
-    input bist_start,
-    output bist_end,
-    output [7:0] signature_out, //for testing purposes only
-    output pass_fail
-);
+    input bist_start;
+    output bist_end;
+    output [7:0] signature_out; //for testing purposes only
+    output pass_fail;
 
     parameter SIGNATURE_VALID = 8'h27;
 
@@ -59,7 +59,7 @@ module top(
     lfsr bist_lfsr(
         .clk(clock),
         .rst(reset),
-        .seed(4'b1100),
+        .seed(lfsr_seed),
         .out(lsfr_in_bus_w),
         .scan_in(misr_scan_w),
         .scan_out(lfsr_scan_w)
