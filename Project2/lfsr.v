@@ -16,6 +16,9 @@ module lfsr(
     assign out[1] = dff[1];
     assign out[2] = dff[2];
     assign out[3] = dff[3];
+    
+    assign scan_out = dff[3];
+
 
 
 
@@ -24,7 +27,7 @@ module lfsr(
             dff <= seed;
         end
         else begin
-            dff <= {dff[NBIT-2:0], dff[3] ^ dff[2]};
+            dff <= {dff[NBIT-2:0], dff[3] ^ dff[2] ^ scan_in};
         end
 
     end

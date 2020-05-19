@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 module top(
     // io relevant to the given circuit
     input clock,
@@ -17,10 +11,11 @@ module top(
     // io relevant to the bist controller
     input bist_start,
     output bist_end,
+    output [7:0] signature_out, //for testing purposes only
     output pass_fail
 );
 
-    parameter SIGNATURE_VALID = 6'b101010;
+    parameter SIGNATURE_VALID = 8'h27;
 
     wire [3:0] misr_grant_o_w;
     
@@ -32,7 +27,7 @@ module top(
     wire uut_scan_w;
     wire scan_toggle_w;
     wire bist_running_w;
-    wire [5:0] signature;
+    wire [7:0] signature_w;
 
     assign request_bus_w[0] = request1;
     assign request_bus_w[1] = request2;
@@ -41,7 +36,8 @@ module top(
 
     assign grant_o = misr_grant_o_w;
 
-    assign pass_fail = signature && SIGNATURE_VALID;
+    assign pass_fail = signature_w && SIGNATURE_VALID;
+    assign signature_out = signature_w;
 
     controller bist_controller(
         .clk(clock),
@@ -63,7 +59,7 @@ module top(
     lfsr bist_lfsr(
         .clk(clock),
         .rst(reset),
-        .seed(4'b1111),
+        .seed(4'b1100),
         .out(lsfr_in_bus_w),
         .scan_in(misr_scan_w),
         .scan_out(lfsr_scan_w)
@@ -87,7 +83,7 @@ module top(
         .rst(reset),
         .scan_in(uut_scan_w),
         .grant_o(misr_grant_o_w),
-        .signature(signature),
+        .signature(signature_w),
         .scan_out(misr_scan_w)
     );
 

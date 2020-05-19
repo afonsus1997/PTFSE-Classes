@@ -3,17 +3,19 @@
 module circular_bist;
 
 //=====SET PARAM=====
-`define getvalidsignature
-
-
+// `define getvalidsignature
+`define multiple_runs
+parameter NTESTRUNS = 5;
 //=====END PARAM=====
 
+    integer runs = 0;
 
     reg clock;
     reg reset;
 
     wire bist_end_w;
     wire pass_fail_w;
+    wire [7:0] signature_out_w;
 
     reg [3:0] request_in_r;
     reg bist_start_r;
@@ -26,7 +28,7 @@ module circular_bist;
         .request3(request_in_r[2]),
         .request4(request_in_r[3]),
         // .grant_o(grant_o),
-
+        .signature_out(signature_out_w),
         .bist_start(bist_start_r),
         .bist_end(bist_end_w),
         .pass_fail(pass_fail_w)
@@ -42,6 +44,7 @@ module circular_bist;
     end
 
     initial begin
+        `ifdef getvalidsignature
         #1;
         reset = 1;
         #3
@@ -51,11 +54,48 @@ module circular_bist;
         #3
         bist_start_r = 0;
         wait (bist_end_w);
+        $display("Output signature: %h" ,signature_out_w);
+        #10
+        wait(!clock);
+        `endif
+
+        `ifdef multiple_runs
+        for(runs = 0; runs<=NTESTRUNS; runs=runs+1) begin
+            #1;
+            reset = 1;
+            #3
+            reset = 0;
+            wait (!clock);
+            bist_start_r = 1;
+            #3
+            bist_start_r = 0;
+            wait (bist_end_w);
+            $display("Output signature: %h" ,signature_out_w);
+            #10
+            wait(!clock);
+        end
+
+        $finish;
+        `endif
+
+        // #1;
+        // reset = 1;
+        // #3
+        // reset = 0;
+        // wait (!clock);
+        // bist_start_r = 1;
+        // #3
+        // bist_start_r = 0;
+        // wait (bist_end_w);
+        // $display("Output signature: %h" ,signature_out_w);
+        $finish;
+
+
     end
 
 
     initial begin
-        #10000 $finish;
+        #10000000 $finish;
     end
 
     always

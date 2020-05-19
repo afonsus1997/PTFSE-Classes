@@ -2,15 +2,16 @@
 `timescale 1ns / 1ps
 
 //===========SET TEST==========
-`define normal
+// `define normal
 // `define consequent_test
+`define consequent_test_reset
 // `define mid_start
 // `define start_reset
 // `define mid_reset
 
 //==========SET NCLOCK========
 `define reportval
-//`define testval
+// `define testval
 
 module controller_tb;
 
@@ -95,6 +96,34 @@ module controller_tb;
         #120
         //======consequent running proof========
         `endif
+
+        //first start
+        `ifdef consequent_test_reset
+        #13 RESET = 1;
+        #13 RESET = 0;     
+        #13 START = 1;
+        #13 START = 0;
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        `endif
+        wait(!CLK);
+        #13 RESET = 1;
+        #13 RESET = 0; 
+        #5
+        //second normal start
+        #13 START = 1;
+        #13 START = 0;
+        `ifdef reportval
+        #7000
+        `endif
+        `ifdef testval
+        #125
+        //======consequent running with reset proof========
+        `endif
+        `endif
         
 
         `ifdef mid_start
@@ -158,7 +187,7 @@ module controller_tb;
         //======mid start proof========
         `endif
 
-    #100 $finish;
+    #1000 $finish;
 
     end
 

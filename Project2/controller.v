@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 `define reportval
-//`define testval
+// `define testval
 
 module controller(
 	input clk,
@@ -11,7 +11,7 @@ module controller(
 	output toggle,
 	output running,
 	output finish,
-	output bist_end,
+	output reg bist_end,
 	output pass_fail
 );
 
@@ -62,7 +62,7 @@ end
 assign init     = (state == INIT);
 assign running  = (state == RUNNING) & (ncounter < NCLOCK);
 assign finish   = (state == FINISH); 
-assign bist_end = (complete) & !(reset | start) ;
+// assign bist_end = (complete) & !(reset | start) ;
 assign toggle   = (state == RUNNING) & toggle_r;
 
 always @ (posedge clk) begin
@@ -84,11 +84,11 @@ end
 wire complete_c;
 assign complete_c = reset | start;
 
-always @ (negedge finish) begin
+always @ (posedge clk) begin
 	if(complete_c)
-		complete <= 0;
-	else
-		complete <= 1;
+		bist_end <= 0;
+	else if(state == FINISH)
+		bist_end <= 1;
 	
 end
 

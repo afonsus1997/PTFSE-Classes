@@ -1,30 +1,31 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Tue Mar 31 23:45:26 2020
+[*] Tue May 19 17:47:54 2020
 [*]
-[dumpfile] "/home/afonsom/Github/PTFSE-Classes/Project1/dump.vcd"
-[dumpfile_mtime] "Tue Mar 31 23:43:03 2020"
-[dumpfile_size] 1843
-[savefile] "/home/afonsom/Github/PTFSE-Classes/Project1/gtkconfig.gtkw"
-[timestart] 0
-[size] 1882 1000
+[dumpfile] "/mnt/Github/PTFSE-Classes/Project2/controller_test.vcd"
+[dumpfile_mtime] "Tue May 19 17:44:02 2020"
+[dumpfile_size] 87994
+[savefile] "/mnt/Github/PTFSE-Classes/Project2/gtkcontroller.gtkw"
+[timestart] 6519500
+[size] 1882 910
 [pos] -1 -1
-*-15.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.000000 7065000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] controller_tb.
 [sst_width] 216
-[signals_width] 94
+[signals_width] 110
 [sst_expanded] 1
 [sst_vpaned_height] 284
 @28
 controller_tb.CLK
-@29
 controller_tb.RESET
-@28
 controller_tb.START
 controller_tb.INIT
 controller_tb.RUNNING
 controller_tb.TOGGLE
 controller_tb.FINISH
 controller_tb.BIST_END
+controller_tb.uut.complete
+@29
+controller_tb.uut.complete_c
 [pattern_trace] 1
 [pattern_trace] 0

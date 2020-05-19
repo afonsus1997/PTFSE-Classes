@@ -1,19 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Mon May 18 10:47:46 2020
+[*] Tue May 19 16:56:23 2020
 [*]
 [dumpfile] "/mnt/Github/PTFSE-Classes/Project2/circular_bist_test.vcd"
-[dumpfile_mtime] "Sun May 17 22:04:21 2020"
-[dumpfile_size] 296194
+[dumpfile_mtime] "Tue May 19 16:55:13 2020"
+[dumpfile_size] 953174
 [savefile] "/mnt/Github/PTFSE-Classes/Project2/gtkcircularbist.gtkw"
-[timestart] 0
+[timestart] 2600680
 [size] 1920 910
-[pos] -472 -10
-*-16.000000 9090 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-14.000000 9090 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] circular_bist.
 [treeopen] circular_bist.uut.
 [sst_width] 212
-[signals_width] 174
+[signals_width] 182
 [sst_expanded] 1
 [sst_vpaned_height] 259
 @28
@@ -28,9 +28,7 @@ circular_bist.uut.bist_end
 circular_bist.uut.bist_running_w
 circular_bist.uut.bist_controller.state[2:0]
 circular_bist.uut.bist_controller.start
-@29
 circular_bist.uut.mux1.mode
-@28
 circular_bist.uut.scan_toggle_w
 circular_bist.uut.lfsr_scan_w
 @22
@@ -38,6 +36,7 @@ circular_bist.uut.mux1.in[3:0]
 circular_bist.uut.bist_lfsr.out[3:0]
 circular_bist.uut.mux1.lfsr[3:0]
 circular_bist.uut.lsfr_in_bus_w[3:0]
-circular_bist.uut.signature[5:0]
+@23
+circular_bist.uut.signature_out[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
