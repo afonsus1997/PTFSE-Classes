@@ -1,15 +1,17 @@
+// parameter seeed = 4'b1111;
 
-module lfsr(clk, rst, scan_in, seed, out, scan_out);
+module lfsr #
+(   
+    parameter NBIT = 4
+) (
+    input clk,
+    input rst,
+    input scan_in,
+    input [3:0] seed, //this should be replaced after testing with a parameter
+    output [3:0] out,
+    output scan_out
+);
 
-    parameter NBIT = 4;
-    // parameter seeed = 4'b1111;
-
-    input clk;
-    input rst;
-    input scan_in;
-    input [3:0] seed; //this should be replaced after testing with a parameter
-    output [3:0] out;
-    output scan_out;
 
     reg [NBIT-1:0] dff;
 

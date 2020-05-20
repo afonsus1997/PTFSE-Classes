@@ -1,21 +1,23 @@
 
-module top(clock, reset, request1, request2, request3, request4, lfsr_seed, grant_o, bist_start ,bist_end, signature_out, pass_fail);
-    //had to go back to old format due to hal :(
-    input clock;
-    input reset;
-    input request1;
-    input request2; 
-    input request3; 
-    input request4;
-    input [3:0] lfsr_seed;
-    output[3:0] grant_o;
+module top #
+(
+    parameter SIGNATURE_VALID = 8'h27
+) (
+    input clock,
+    input reset,
+    input request1,
+    input request2, 
+    input request3, 
+    input request4,
+    input [3:0] lfsr_seed,
+    output[3:0] grant_o,
     // io relevant to the bist controller
-    input bist_start;
-    output bist_end;
-    output [7:0] signature_out; //for testing purposes only
-    output pass_fail;
-
-    parameter SIGNATURE_VALID = 8'h27;
+    input bist_start,
+    output bist_end,
+    output [7:0] signature_out, //for testing purposes only
+    output pass_fail
+);
+    
 
     wire [3:0] misr_grant_o_w;
     
