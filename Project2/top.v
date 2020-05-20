@@ -45,8 +45,8 @@ module top(clock, reset, request1, request2, request3, request4, lfsr_seed, gran
 	    .start(bist_start),
         .running(bist_running_w),
         .toggle(scan_toggle_w),
-	    .bist_end(bist_end),
-        .pass_fail(pass_fail)
+	    .bist_end(bist_end)
+        //.pass_fail(pass_fail)
     );
 
     lfsrmux mux1(

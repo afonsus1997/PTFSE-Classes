@@ -11,12 +11,11 @@ module controller(
 	output toggle,
 	output running,
 	output finish,
-	output reg bist_end,
-	output pass_fail
+	output reg bist_end
 );
 
 reg [2:0] state, next_state; 
-parameter IDLE=0, START=1, INIT=2, RUNNING=3, FINISH=4;
+parameter IDLE_s=0, START_s=1, INIT_s=2, RUNNING_s=3, FINISH_s=4;
 `ifdef reportval
 parameter NCLOCK = 650; //650 for group 2
 `endif
@@ -31,10 +30,10 @@ reg reset_latch;
 
 always @ (posedge clk) begin
 	if(reset) begin
-		state       <= IDLE;
+		state       <= IDLE_s;
 	end
-	else if(start & (state == IDLE) & !reset_latch) begin
-		state       <= START;
+	else if(start & (state == IDLE_s) & !reset_latch) begin
+		state       <= START_s;
 	end
 	else
 		state       <= next_state;
@@ -43,34 +42,36 @@ end
 
 always @(*) begin
 	case (state)
-		START:
-			next_state = INIT;
-		INIT:
-			next_state = RUNNING;
-		RUNNING:
+		IDLE_s:
+			next_state = IDLE_s;
+		START_s:
+			next_state = INIT_s;
+		INIT_s:
+			next_state = RUNNING_s;
+		RUNNING_s:
 			if(ncounter == NCLOCK)
-				next_state = FINISH;
+				next_state = FINISH_s;
 			else
-				next_state = RUNNING;
-		FINISH:
-			next_state = IDLE;	
+				next_state = RUNNING_s;
+		FINISH_s:
+			next_state = IDLE_s;	
 		default:
-			next_state  = IDLE;
+			next_state  = IDLE_s;
 	endcase
 end
 
-assign init     = (state == INIT);
-assign running  = (state == RUNNING) & (ncounter < NCLOCK);
-assign finish   = (state == FINISH); 
+assign init     = (state == INIT_s);
+assign running  = (state == RUNNING_s) & (ncounter < NCLOCK);
+assign finish   = (state == FINISH_s); 
 // assign bist_end = (complete) & !(reset | start) ;
-assign toggle   = (state == RUNNING) & toggle_r;
+assign toggle   = (state == RUNNING_s) & toggle_r;
 
 always @ (posedge clk) begin
-	if(reset | (state == FINISH)) begin
+	if(reset | (state == FINISH_s)) begin
 		toggle_r <= 0;
 		ncounter <= 0;
 	end	
-	else if(state == RUNNING) begin
+	else if(state == RUNNING_s) begin
 		if(ncounter < NCLOCK-1) begin
 			toggle_r <= !toggle_r;
 		end
@@ -87,7 +88,7 @@ assign complete_c = reset | start;
 always @ (posedge clk) begin
 	if(complete_c)
 		bist_end <= 0;
-	else if(state == FINISH)
+	else if(state == FINISH_s)
 		bist_end <= 1;
 	
 end
