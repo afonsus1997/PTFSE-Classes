@@ -1,7 +1,7 @@
 
 module top #
 (
-    parameter SIGNATURE_VALID = 8'h27
+    parameter SIGNATURE_VALID = 16'h6BD2
 ) (
     input clock,
     input reset,
@@ -9,12 +9,12 @@ module top #
     input request2, 
     input request3, 
     input request4,
-    input [3:0] lfsr_seed,
+    // input [3:0] lfsr_seed,
     output[3:0] grant_o,
     // io relevant to the bist controller
     input bist_start,
     output bist_end,
-    output [7:0] signature_out, //for testing purposes only
+    output [15:0] signature_out, //for testing purposes only
     output pass_fail
 );
     
@@ -29,7 +29,8 @@ module top #
     wire uut_scan_w;
     wire scan_toggle_w;
     wire bist_running_w;
-    wire [7:0] signature_w;
+    wire [15:0] signature_w;
+    wire init_w;
 
     assign request_bus_w[0] = request1;
     assign request_bus_w[1] = request2;
@@ -38,7 +39,7 @@ module top #
 
     assign grant_o = misr_grant_o_w;
 
-    assign pass_fail = signature_w && SIGNATURE_VALID;
+    assign pass_fail = (signature_w == SIGNATURE_VALID) & bist_end;
     assign signature_out = signature_w;
 
     controller bist_controller(
@@ -47,8 +48,8 @@ module top #
 	    .start(bist_start),
         .running(bist_running_w),
         .toggle(scan_toggle_w),
-	    .bist_end(bist_end)
-        //.pass_fail(pass_fail)
+	    .bist_end(bist_end),
+        .init(init_w)
     );
 
     lfsrmux mux1(
@@ -60,8 +61,8 @@ module top #
 
     lfsr bist_lfsr(
         .clk(clock),
-        .rst(reset),
-        .seed(lfsr_seed),
+        .rst(init_w),
+        // .seed(lfsr_seed),
         .out(lsfr_in_bus_w),
         .scan_in(misr_scan_w),
         .scan_out(lfsr_scan_w)
@@ -69,7 +70,7 @@ module top #
 
     circuito06 uut(
         .clock(clock), 
-        .reset(reset), 
+        .reset(reset | init_w), 
         .request1(input_mux_out_w[0]), 
         .request2(input_mux_out_w[1]), 
         .request3(input_mux_out_w[2]), 
@@ -82,7 +83,7 @@ module top #
 
     misr bist_misr(
         .clk(clock),
-        .rst(reset),
+        .rst(init_w),
         .scan_in(uut_scan_w),
         .grant_o(misr_grant_o_w),
         .signature(signature_w),

@@ -1,16 +1,2 @@
 VCD info: dumpfile circular_bist_test.vcd opened for output.
-Output signature: e3
-Output signature: 7f
-Output signature: e2
-Output signature: f6
-Output signature: da
-Output signature: 52
-Output signature: f8
-Output signature: d4
-Output signature: 73
-Output signature: ca
-Output signature: 42
-Output signature: 6e
-Output signature: d1
-Output signature: 9e
-Output signature: 27
+Output signature: 6bd2

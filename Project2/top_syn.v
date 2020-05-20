@@ -3,442 +3,464 @@
 
 // Verification Directory fv/top 
 
-module top(clock, reset, request1, request2, request3, request4,
-     lfsr_seed, grant_o, bist_start, bist_end, signature_out,
-     pass_fail);
-  input clock, reset, request1, request2, request3, request4,
-       bist_start;
-  input [3:0] lfsr_seed;
-  output [3:0] grant_o;
-  output bist_end, pass_fail;
-  output [7:0] signature_out;
-  wire clock, reset, request1, request2, request3, request4, bist_start;
-  wire [3:0] lfsr_seed;
-  wire [3:0] grant_o;
-  wire bist_end, pass_fail;
-  wire [7:0] signature_out;
-  wire [3:0] lsfr_in_bus_w;
-  wire [2:0] uut_coda0;
-  wire [2:0] uut_coda1;
-  wire [2:0] uut_coda2;
-  wire [2:0] uut_coda3;
-  wire [3:0] input_mux_out_w;
-  wire [1:0] uut_stato;
-  wire [10:0] bist_controller_ncounter;
-  wire [2:0] bist_controller_state;
+module controller(clk, reset, start, init, toggle, running, finish,
+     bist_end);
+  input clk, reset, start;
+  output init, toggle, running, finish, bist_end;
+  wire clk, reset, start;
+  wire init, toggle, running, finish, bist_end;
+  wire [10:0] ncounter;
+  wire [2:0] state;
   wire UNCONNECTED, UNCONNECTED0, UNCONNECTED1, UNCONNECTED2,
        UNCONNECTED3, UNCONNECTED4, UNCONNECTED5, UNCONNECTED6;
-  wire UNCONNECTED7, UNCONNECTED8, UNCONNECTED9, UNCONNECTED10,
-       UNCONNECTED11, UNCONNECTED12, UNCONNECTED13, UNCONNECTED14;
-  wire UNCONNECTED15, UNCONNECTED16, UNCONNECTED17,
-       bist_controller_n_114, bist_controller_reset_latch,
-       bist_controller_toggle_r, n_0, n_1;
-  wire n_2, n_3, n_4, n_5, n_6, n_7, n_8, n_9;
-  wire n_10, n_11, n_12, n_13, n_14, n_15, n_16, n_17;
-  wire n_18, n_19, n_20, n_21, n_22, n_23, n_24, n_25;
-  wire n_26, n_27, n_28, n_29, n_30, n_31, n_32, n_33;
-  wire n_34, n_35, n_36, n_37, n_38, n_39, n_40, n_41;
-  wire n_42, n_43, n_44, n_45, n_46, n_47, n_48, n_49;
-  wire n_50, n_51, n_52, n_53, n_54, n_55, n_56, n_57;
-  wire n_58, n_59, n_60, n_61, n_62, n_63, n_64, n_65;
-  wire n_66, n_67, n_68, n_69, n_70, n_71, n_72, n_73;
-  wire n_74, n_75, n_76, n_77, n_78, n_79, n_80, n_81;
-  wire n_82, n_83, n_84, n_85, n_86, n_87, n_88, n_89;
-  wire n_90, n_91, n_92, n_93, n_94, n_95, n_96, n_97;
-  wire n_98, n_99, n_101, n_102, n_104, n_105, n_106, n_108;
-  wire n_109, n_110, n_111, n_112, n_113, n_114, n_115, n_116;
-  wire n_117, n_118, n_119, n_120, n_121, n_122, n_123, n_125;
-  wire n_126, n_127, n_129, n_130, n_131, n_132, n_133, n_134;
-  wire n_135, n_136, n_137, n_138, n_139, n_140, n_141, n_142;
-  wire n_143, n_144, n_145, n_146, n_147, n_148, n_153, n_154;
-  wire n_160, n_162, n_165, n_166, scan_toggle_w, uut_fu1, uut_fu2,
-       uut_fu3;
-  wire uut_fu4, uut_n_0, uut_n_4, uut_n_6, uut_n_8, uut_n_10, uut_n_12,
-       uut_n_14;
-  wire uut_n_16, uut_n_18, uut_n_20, uut_n_22, uut_n_24, uut_n_26,
-       uut_n_28, uut_n_30;
-  wire uut_n_32, uut_n_34, uut_n_36, uut_n_38, uut_n_40, uut_n_42,
-       uut_n_44, uut_n_46;
-  wire uut_n_48, uut_n_50, uut_n_59, uut_n_60, uut_n_61, uut_n_63,
-       uut_n_73, uut_n_84;
-  wire uut_n_87, uut_n_89, uut_n_98, uut_n_102, uut_n_103, uut_n_104,
-       uut_n_105, uut_n_106;
-  wire uut_n_107, uut_n_108, uut_n_110, uut_n_111, uut_ru1, uut_ru2,
-       uut_ru3, uut_ru4;
-  wire uut_scan_w;
-  DFSC1 \uut_coda0_reg[0] (.RN (n_50), .C (clock), .D (uut_n_84), .SD
-       (lsfr_in_bus_w[3]), .SE (scan_toggle_w), .Q (uut_coda0[0]), .QN
-       (uut_n_32));
-  DFSC1 \uut_coda0_reg[1] (.RN (n_50), .C (clock), .D (uut_n_87), .SD
-       (uut_n_32), .SE (scan_toggle_w), .Q (uut_coda0[1]), .QN
-       (uut_n_28));
-  DFSC1 \uut_coda0_reg[2] (.RN (n_50), .C (clock), .D (uut_n_89), .SD
-       (uut_n_28), .SE (scan_toggle_w), .Q (uut_coda0[2]), .QN
-       (uut_n_30));
-  DFSC1 \uut_coda1_reg[0] (.RN (n_50), .C (clock), .D (uut_n_105), .SD
-       (uut_n_30), .SE (scan_toggle_w), .Q (uut_coda1[0]), .QN
-       (uut_n_50));
-  DFSC1 \uut_coda1_reg[1] (.RN (n_50), .C (clock), .D (uut_n_107), .SD
-       (uut_n_50), .SE (scan_toggle_w), .Q (uut_coda1[1]), .QN
-       (uut_n_48));
-  DFSC1 \uut_coda1_reg[2] (.RN (n_50), .C (clock), .D (uut_n_106), .SD
-       (uut_n_48), .SE (scan_toggle_w), .Q (uut_coda1[2]), .QN
-       (uut_n_46));
-  DFSC1 \uut_coda2_reg[0] (.RN (n_50), .C (clock), .D (uut_n_110), .SD
-       (uut_n_46), .SE (scan_toggle_w), .Q (uut_coda2[0]), .QN
-       (uut_n_44));
-  DFSC1 \uut_coda2_reg[1] (.RN (n_50), .C (clock), .D (uut_n_111), .SD
-       (uut_n_44), .SE (scan_toggle_w), .Q (uut_coda2[1]), .QN
-       (uut_n_42));
-  DFSC1 \uut_coda2_reg[2] (.RN (n_50), .C (clock), .D (uut_n_108), .SD
-       (uut_n_42), .SE (scan_toggle_w), .Q (uut_coda2[2]), .QN
-       (uut_n_40));
-  DFSC1 \uut_coda3_reg[0] (.RN (n_50), .C (clock), .D (uut_n_103), .SD
-       (uut_n_40), .SE (scan_toggle_w), .Q (uut_coda3[0]), .QN
-       (uut_n_36));
-  DFSC1 \uut_coda3_reg[1] (.RN (n_50), .C (clock), .D (uut_n_102), .SD
-       (uut_n_36), .SE (scan_toggle_w), .Q (uut_coda3[1]), .QN
-       (uut_n_34));
-  DFSC1 \uut_coda3_reg[2] (.RN (n_50), .C (clock), .D (uut_n_104), .SD
-       (uut_n_34), .SE (scan_toggle_w), .Q (uut_coda3[2]), .QN
-       (uut_n_38));
-  DFSEC1 uut_fu1_reg(.RN (n_50), .C (clock), .D (uut_ru1), .E
-       (uut_n_73), .SD (uut_n_38), .SE (scan_toggle_w), .Q (uut_fu1),
-       .QN (uut_n_14));
-  DFSEC1 uut_fu2_reg(.RN (n_50), .C (clock), .D (uut_ru2), .E
-       (uut_n_73), .SD (uut_n_14), .SE (scan_toggle_w), .Q (uut_fu2),
-       .QN (uut_n_18));
-  DFSEC1 uut_fu3_reg(.RN (n_50), .C (clock), .D (uut_ru3), .E
-       (uut_n_73), .SD (uut_n_18), .SE (scan_toggle_w), .Q (uut_fu3),
-       .QN (uut_n_12));
-  DFSEC1 uut_fu4_reg(.RN (n_50), .C (clock), .D (uut_ru4), .E
-       (uut_n_73), .SD (uut_n_12), .SE (scan_toggle_w), .Q (uut_fu4),
-       .QN (uut_n_16));
-  DFSEC1 \uut_grant_reg[0] (.RN (n_50), .C (clock), .D (uut_n_63), .E
-       (uut_n_98), .SD (uut_n_16), .SE (scan_toggle_w), .Q
-       (grant_o[0]), .QN (uut_n_26));
-  DFSEC1 \uut_grant_reg[1] (.RN (n_50), .C (clock), .D (uut_n_59), .E
-       (uut_n_98), .SD (uut_n_26), .SE (scan_toggle_w), .Q
-       (grant_o[1]), .QN (uut_n_24));
-  DFSEC1 \uut_grant_reg[2] (.RN (n_50), .C (clock), .D (uut_n_60), .E
-       (uut_n_98), .SD (uut_n_24), .SE (scan_toggle_w), .Q
-       (grant_o[2]), .QN (uut_n_22));
-  DFSEC1 \uut_grant_reg[3] (.RN (n_50), .C (clock), .D (uut_n_61), .E
-       (uut_n_98), .SD (uut_n_22), .SE (scan_toggle_w), .Q
-       (grant_o[3]), .QN (uut_n_20));
-  DFSEC1 uut_ru1_reg(.RN (n_50), .C (clock), .D (input_mux_out_w[0]),
-       .E (uut_stato[0]), .SD (uut_n_20), .SE (scan_toggle_w), .Q
-       (uut_ru1), .QN (uut_n_8));
-  DFSEC1 uut_ru2_reg(.RN (n_50), .C (clock), .D (input_mux_out_w[1]),
-       .E (uut_stato[0]), .SD (uut_n_8), .SE (scan_toggle_w), .Q
-       (uut_ru2), .QN (uut_n_10));
-  DFSEC1 uut_ru3_reg(.RN (n_50), .C (clock), .D (input_mux_out_w[2]),
-       .E (uut_stato[0]), .SD (uut_n_10), .SE (scan_toggle_w), .Q
-       (uut_ru3), .QN (uut_n_6));
-  DFSEC1 uut_ru4_reg(.RN (n_50), .C (clock), .D (input_mux_out_w[3]),
-       .E (uut_stato[0]), .SD (uut_n_6), .SE (scan_toggle_w), .Q
-       (uut_ru4), .QN (uut_n_4));
-  TFSC1 \uut_stato_reg[0] (.RN (n_50), .C (clock), .SD (uut_n_4), .SE
-       (scan_toggle_w), .Q (uut_n_0), .QN (uut_stato[0]));
-  DFSC1 \uut_stato_reg[1] (.RN (n_50), .C (clock), .D (uut_n_73), .SD
-       (uut_n_0), .SE (scan_toggle_w), .Q (uut_stato[1]), .QN
-       (uut_scan_w));
-  CLKIN3 g1435(.A (n_160), .Q (n_129));
-  NAND20 g1889(.A (n_123), .B (n_147), .Q (pass_fail));
-  NOR40 g1890(.A (signature_out[5]), .B (signature_out[4]), .C
-       (signature_out[3]), .D (n_146), .Q (n_147));
-  INV2 g1891(.A (n_145), .Q (n_146));
-  NOR40 g1892(.A (signature_out[6]), .B (signature_out[2]), .C
-       (signature_out[1]), .D (signature_out[0]), .Q (n_145));
-  DF3 \bist_misr_dff_reg[6] (.C (clock), .D (n_144), .Q
-       (signature_out[6]), .QN (n_51));
-  INV3 g1894(.A (n_143), .Q (n_144));
-  NOR21 g1895(.A (reset), .B (signature_out[5]), .Q (n_143));
-  DF3 \bist_misr_dff_reg[5] (.C (clock), .D (n_142), .Q
-       (signature_out[5]), .QN (UNCONNECTED));
-  INV3 g1897(.A (n_141), .Q (n_142));
-  NOR21 g1898(.A (reset), .B (signature_out[4]), .Q (n_141));
-  DF3 \bist_misr_dff_reg[4] (.C (clock), .D (n_140), .Q
-       (signature_out[4]), .QN (UNCONNECTED0));
-  NAND22 g1900(.A (n_139), .B (n_50), .Q (n_140));
-  XOR31 g1901(.A (signature_out[3]), .B (uut_scan_w), .C (n_123), .Q
-       (n_139));
-  DF3 \bist_misr_dff_reg[3] (.C (clock), .D (n_138), .Q
-       (signature_out[3]), .QN (UNCONNECTED1));
-  NAND22 g1903(.A (n_137), .B (n_50), .Q (n_138));
-  XOR31 g1904(.A (signature_out[2]), .B (grant_o[0]), .C (n_123), .Q
-       (n_137));
-  DF3 \bist_misr_dff_reg[2] (.C (clock), .D (n_136), .Q
-       (signature_out[2]), .QN (UNCONNECTED2));
-  NAND22 g1906(.A (n_135), .B (n_50), .Q (n_136));
-  XOR31 g1907(.A (signature_out[1]), .B (grant_o[1]), .C (n_123), .Q
-       (n_135));
-  MUX22 g1908(.A (request4), .B (lsfr_in_bus_w[3]), .S (n_133), .Q
-       (input_mux_out_w[3]));
-  DFS1 \bist_lfsr_dff_reg[3] (.C (clock), .D (lsfr_in_bus_w[2]), .SD
-       (lfsr_seed[3]), .SE (reset), .Q (lsfr_in_bus_w[3]), .QN
+  wire n_0, n_1, n_2, n_3, n_4, n_5, n_6, n_7;
+  wire n_8, n_9, n_10, n_11, n_12, n_13, n_14, n_15;
+  wire n_16, n_17, n_18, n_19, n_20, n_21, n_22, n_23;
+  wire n_24, n_25, n_26, n_27, n_28, n_29, n_30, n_31;
+  wire n_32, n_33, n_34, n_35, n_36, n_37, n_38, n_39;
+  wire n_40, n_41, n_42, n_43, n_44, n_45, n_46, n_47;
+  wire n_48, n_49, n_50, n_51, n_52, n_53, n_54, n_55;
+  wire n_56, n_57, n_58, n_59, n_60, n_61, n_63, n_64;
+  wire n_65, n_67, n_68, n_69, n_70, n_71, n_72, n_74;
+  wire n_75, n_76, n_77, n_78, n_79, n_80, n_81, n_82;
+  wire n_85, n_86, n_89, n_91, n_92, n_93, n_94, n_95;
+  wire n_102, n_103, n_104, n_105, n_106, reset_latch, toggle_r;
+  AOI2111 g672(.A (n_86), .B (ncounter[9]), .C (n_85), .D (n_92), .Q
+       (running));
+  OAI212 g673(.A (n_82), .B (n_104), .C (n_103), .Q (n_86));
+  NOR22 g674(.A (n_5), .B (n_92), .Q (toggle));
+  OAI311 g675(.A (ncounter[4]), .B (ncounter[5]), .C (ncounter[6]), .D
+       (ncounter[7]), .Q (n_103));
+  NAND22 g676(.A (n_8), .B (state[0]), .Q (n_92));
+  INV2 g677(.A (n_102), .Q (n_85));
+  AOI211 g678(.A (ncounter[9]), .B (ncounter[8]), .C (ncounter[10]), .Q
+       (n_102));
+  NOR21 g679(.A (state[0]), .B (n_93), .Q (init));
+  NOR21 g681(.A (n_82), .B (n_81), .Q (n_91));
+  NAND22 g682(.A (ncounter[9]), .B (ncounter[8]), .Q (n_94));
+  NAND22 g683(.A (ncounter[3]), .B (ncounter[2]), .Q (n_95));
+  INV3 g684(.A (n_8), .Q (n_93));
+  NOR21 g685(.A (state[2]), .B (n_89), .Q (n_8));
+  DF3 \ncounter_reg[9] (.C (clk), .D (n_80), .Q (ncounter[9]), .QN
+       (n_1));
+  DF3 \ncounter_reg[7] (.C (clk), .D (n_79), .Q (ncounter[7]), .QN
+       (n_82));
+  NOR21 g1122(.A (n_26), .B (n_78), .Q (n_80));
+  DF3 \ncounter_reg[10] (.C (clk), .D (n_76), .Q (ncounter[10]), .QN
+       (UNCONNECTED));
+  DF3 \ncounter_reg[8] (.C (clk), .D (n_77), .Q (ncounter[8]), .QN
+       (UNCONNECTED0));
+  NOR21 g1125(.A (n_26), .B (n_75), .Q (n_79));
+  IMUX20 g1126(.A (n_71), .B (ncounter[9]), .S (n_92), .Q (n_78));
+  DF3 \ncounter_reg[6] (.C (clk), .D (n_74), .Q (ncounter[6]), .QN
+       (n_81));
+  NOR21 g1128(.A (n_26), .B (n_72), .Q (n_77));
+  NOR21 g1129(.A (n_26), .B (n_106), .Q (n_76));
+  IMUX20 g1130(.A (n_69), .B (ncounter[7]), .S (n_92), .Q (n_75));
+  NOR21 g1131(.A (n_26), .B (n_70), .Q (n_74));
+  IMUX20 g1133(.A (n_68), .B (ncounter[8]), .S (n_92), .Q (n_72));
+  IMUX20 g1134(.A (n_1), .B (ncounter[9]), .S (n_67), .Q (n_71));
+  IMUX20 g1135(.A (n_65), .B (ncounter[6]), .S (n_92), .Q (n_70));
+  XOR21 g1136(.A (ncounter[7]), .B (n_64), .Q (n_69));
+  ADD22 g1137(.A (n_59), .B (ncounter[8]), .CO (n_67), .S (n_68));
+  DF3 \ncounter_reg[5] (.C (clk), .D (n_63), .Q (ncounter[5]), .QN
+       (UNCONNECTED1));
+  ADD22 g1140(.A (n_56), .B (ncounter[6]), .CO (n_64), .S (n_65));
+  NOR21 g1141(.A (n_26), .B (n_61), .Q (n_63));
+  DF3 \ncounter_reg[3] (.C (clk), .D (n_57), .Q (ncounter[3]), .QN
+       (n_3));
+  DF3 toggle_r_reg(.C (clk), .D (n_60), .Q (toggle_r), .QN (n_5));
+  IMUX20 g1145(.A (n_55), .B (ncounter[5]), .S (n_92), .Q (n_61));
+  DF3 \ncounter_reg[4] (.C (clk), .D (n_54), .Q (ncounter[4]), .QN
+       (UNCONNECTED2));
+  NOR21 g1147(.A (reset), .B (n_53), .Q (n_60));
+  INV2 g1148(.A (n_58), .Q (n_59));
+  NAND22 g1149(.A (n_56), .B (n_91), .Q (n_58));
+  NOR21 g1150(.A (n_26), .B (n_52), .Q (n_57));
+  ADD22 g1151(.A (n_43), .B (ncounter[5]), .CO (n_56), .S (n_55));
+  DF3 \ncounter_reg[2] (.C (clk), .D (n_51), .Q (ncounter[2]), .QN
        (UNCONNECTED3));
-  MUX22 g1910(.A (request3), .B (lsfr_in_bus_w[2]), .S (n_133), .Q
-       (input_mux_out_w[2]));
-  MUX22 g1911(.A (request2), .B (lsfr_in_bus_w[1]), .S (n_133), .Q
-       (input_mux_out_w[1]));
-  MUX22 g1912(.A (request1), .B (lsfr_in_bus_w[0]), .S (n_133), .Q
-       (input_mux_out_w[0]));
-  DF3 \bist_misr_dff_reg[1] (.C (clock), .D (n_134), .Q
-       (signature_out[1]), .QN (UNCONNECTED4));
-  NAND22 g1914(.A (n_132), .B (n_50), .Q (n_134));
-  AOI2111 g1915(.A (n_131), .B (bist_controller_ncounter[9]), .C
-       (n_129), .D (n_49), .Q (n_133));
-  DFS1 \bist_lfsr_dff_reg[2] (.C (clock), .D (lsfr_in_bus_w[1]), .SD
-       (lfsr_seed[2]), .SE (reset), .Q (lsfr_in_bus_w[2]), .QN
+  NOR21 g1153(.A (n_26), .B (n_49), .Q (n_54));
+  AOI211 g1154(.A (n_27), .B (toggle_r), .C (n_50), .Q (n_53));
+  IMUX20 g1155(.A (n_47), .B (ncounter[3]), .S (n_92), .Q (n_52));
+  NOR21 g1156(.A (n_26), .B (n_48), .Q (n_51));
+  NOR40 g1157(.A (n_12), .B (n_39), .C (n_93), .D (n_20), .Q (n_50));
+  IMUX20 g1158(.A (n_44), .B (ncounter[4]), .S (n_92), .Q (n_49));
+  DF3 \state_reg[1] (.C (clk), .D (n_46), .Q (state[1]), .QN (n_89));
+  DF3 \state_reg[0] (.C (clk), .D (n_45), .Q (state[0]), .QN (n_2));
+  IMUX20 g1161(.A (n_42), .B (ncounter[2]), .S (n_92), .Q (n_48));
+  IMUX20 g1162(.A (n_3), .B (ncounter[3]), .S (n_41), .Q (n_47));
+  DF3 \ncounter_reg[1] (.C (clk), .D (n_40), .Q (ncounter[1]), .QN
+       (n_4));
+  DFE1 bist_end_reg(.C (clk), .D (n_10), .E (n_33), .Q (bist_end), .QN
+       (UNCONNECTED4));
+  NOR21 g1165(.A (reset), .B (n_37), .Q (n_46));
+  NOR31 g1166(.A (state[2]), .B (n_38), .C (reset), .Q (n_45));
+  ADD22 g1167(.A (n_34), .B (ncounter[4]), .CO (n_43), .S (n_44));
+  ADD22 g1168(.A (n_23), .B (ncounter[2]), .CO (n_41), .S (n_42));
+  DF3 \state_reg[2] (.C (clk), .D (n_36), .Q (state[2]), .QN (n_6));
+  NOR21 g1170(.A (n_26), .B (n_35), .Q (n_40));
+  AOI211 g1171(.A (n_30), .B (n_95), .C (n_11), .Q (n_39));
+  AOI211 g1172(.A (n_31), .B (state[1]), .C (n_19), .Q (n_38));
+  AOI211 g1173(.A (n_8), .B (n_31), .C (n_21), .Q (n_37));
+  DF3 \ncounter_reg[0] (.C (clk), .D (n_32), .Q (ncounter[0]), .QN
        (UNCONNECTED5));
-  XNR21 g1917(.A (signature_out[0]), .B (grant_o[2]), .Q (n_132));
-  DF3 \bist_misr_dff_reg[0] (.C (clock), .D (n_130), .Q
-       (signature_out[0]), .QN (UNCONNECTED6));
-  NAND22 g1919(.A (n_162), .B (n_127), .Q (n_131));
-  DFS1 \bist_lfsr_dff_reg[1] (.C (clock), .D (lfsr_seed[1]), .SD
-       (lsfr_in_bus_w[0]), .SE (n_50), .Q (lsfr_in_bus_w[1]), .QN
-       (UNCONNECTED7));
-  NOR22 g1921(.A (n_148), .B (n_49), .Q (scan_toggle_w));
-  NAND22 g1922(.A (n_126), .B (n_50), .Q (n_130));
-  OAI311 g1923(.A (bist_controller_ncounter[4]), .B
-       (bist_controller_ncounter[5]), .C (bist_controller_ncounter[6]),
-       .D (bist_controller_ncounter[7]), .Q (n_162));
-  AOI211 g1925(.A (bist_controller_ncounter[9]), .B
-       (bist_controller_ncounter[8]), .C
-       (bist_controller_ncounter[10]), .Q (n_160));
-  INV3 g1926(.A (n_49), .Q (bist_controller_n_114));
-  NAND31 g1927(.A (n_122), .B (bist_controller_state[1]), .C
-       (bist_controller_state[0]), .Q (n_49));
-  OAI2111 g1928(.A (bist_controller_ncounter[1]), .B
-       (bist_controller_ncounter[2]), .C (bist_controller_ncounter[3]),
-       .D (bist_controller_ncounter[7]), .Q (n_127));
-  IMUX21 g1929(.A (signature_out[7]), .B (n_123), .S (grant_o[3]), .Q
-       (n_126));
-  NAND22 g1931(.A (bist_controller_ncounter[7]), .B
-       (bist_controller_ncounter[6]), .Q (n_153));
-  INV3 g1932(.A (n_125), .Q (n_154));
-  NAND22 g1933(.A (bist_controller_ncounter[3]), .B
-       (bist_controller_ncounter[2]), .Q (n_125));
-  INV3 g1934(.A (reset), .Q (n_50));
-  DF3 \bist_controller_ncounter_reg[9] (.C (clock), .D (n_121), .Q
-       (bist_controller_ncounter[9]), .QN (n_47));
-  DF3 \bist_controller_ncounter_reg[7] (.C (clock), .D (n_120), .Q
-       (bist_controller_ncounter[7]), .QN (n_43));
-  NOR21 g2002(.A (n_67), .B (n_119), .Q (n_121));
-  DF3 \bist_controller_ncounter_reg[10] (.C (clock), .D (n_117), .Q
-       (bist_controller_ncounter[10]), .QN (UNCONNECTED8));
-  DF3 \bist_controller_ncounter_reg[8] (.C (clock), .D (n_118), .Q
-       (bist_controller_ncounter[8]), .QN (n_44));
-  NOR21 g2005(.A (n_67), .B (n_116), .Q (n_120));
-  IMUX20 g2006(.A (bist_controller_ncounter[9]), .B (n_112), .S
-       (bist_controller_n_114), .Q (n_119));
-  DF3 \bist_controller_ncounter_reg[6] (.C (clock), .D (n_115), .Q
-       (bist_controller_ncounter[6]), .QN (UNCONNECTED9));
-  NOR21 g2008(.A (n_67), .B (n_114), .Q (n_118));
-  NOR21 g2009(.A (n_67), .B (n_113), .Q (n_117));
-  IMUX20 g2010(.A (bist_controller_ncounter[7]), .B (n_110), .S
-       (bist_controller_n_114), .Q (n_116));
-  NOR21 g2011(.A (n_67), .B (n_111), .Q (n_115));
-  IMUX20 g2012(.A (bist_controller_ncounter[8]), .B (n_109), .S
-       (bist_controller_n_114), .Q (n_114));
-  IMUX20 g2013(.A (bist_controller_ncounter[10]), .B (n_166), .S
-       (bist_controller_n_114), .Q (n_113));
-  IMUX20 g2014(.A (n_47), .B (bist_controller_ncounter[9]), .S (n_108),
-       .Q (n_112));
-  IMUX20 g2015(.A (bist_controller_ncounter[6]), .B (n_106), .S
-       (bist_controller_n_114), .Q (n_111));
-  IMUX20 g2016(.A (n_43), .B (bist_controller_ncounter[7]), .S (n_105),
-       .Q (n_110));
-  ADD22 g2017(.A (n_99), .B (bist_controller_ncounter[8]), .CO (n_108),
-       .S (n_109));
-  DF3 \bist_controller_ncounter_reg[5] (.C (clock), .D (n_104), .Q
-       (bist_controller_ncounter[5]), .QN (UNCONNECTED10));
-  ADD22 g2020(.A (n_95), .B (bist_controller_ncounter[6]), .CO (n_105),
-       .S (n_106));
-  DF3 bist_controller_toggle_r_reg(.C (clock), .D (n_102), .Q
-       (bist_controller_toggle_r), .QN (n_148));
-  NOR21 g2022(.A (n_67), .B (n_101), .Q (n_104));
-  DF3 \bist_controller_ncounter_reg[3] (.C (clock), .D (n_98), .Q
-       (bist_controller_ncounter[3]), .QN (n_45));
-  NOR21 g2025(.A (n_67), .B (n_97), .Q (n_102));
-  IMUX20 g2026(.A (bist_controller_ncounter[5]), .B (n_94), .S
-       (bist_controller_n_114), .Q (n_101));
-  DF3 \bist_controller_ncounter_reg[4] (.C (clock), .D (n_93), .Q
-       (bist_controller_ncounter[4]), .QN (UNCONNECTED11));
-  NOR21 g2029(.A (n_153), .B (n_96), .Q (n_99));
-  NOR21 g2030(.A (n_67), .B (n_92), .Q (n_98));
-  IMUX20 g2031(.A (bist_controller_toggle_r), .B (n_90), .S
-       (bist_controller_n_114), .Q (n_97));
-  INV2 g2032(.A (n_95), .Q (n_96));
-  ADD22 g2033(.A (n_82), .B (bist_controller_ncounter[5]), .CO (n_95),
-       .S (n_94));
-  DF3 \bist_controller_ncounter_reg[2] (.C (clock), .D (n_91), .Q
-       (bist_controller_ncounter[2]), .QN (UNCONNECTED12));
-  NOR21 g2035(.A (n_67), .B (n_89), .Q (n_93));
-  IMUX20 g2036(.A (bist_controller_ncounter[3]), .B (n_86), .S
-       (bist_controller_n_114), .Q (n_92));
-  DF3 \bist_controller_state_reg[0] (.C (clock), .D (n_88), .Q
-       (bist_controller_state[0]), .QN (UNCONNECTED13));
-  NOR21 g2038(.A (n_67), .B (n_87), .Q (n_91));
-  AOI2111 g2039(.A (n_85), .B (bist_controller_ncounter[9]), .C
-       (n_129), .D (bist_controller_toggle_r), .Q (n_90));
-  IMUX20 g2040(.A (bist_controller_ncounter[4]), .B (n_83), .S
-       (bist_controller_n_114), .Q (n_89));
-  DF3 \bist_controller_state_reg[1] (.C (clock), .D (n_84), .Q
-       (bist_controller_state[1]), .QN (UNCONNECTED14));
-  OAI2111 g2042(.A (reset), .B (n_71), .C (n_78), .D (n_68), .Q (n_88));
-  IMUX20 g2043(.A (bist_controller_ncounter[2]), .B (n_81), .S
-       (bist_controller_n_114), .Q (n_87));
-  IMUX20 g2044(.A (n_45), .B (bist_controller_ncounter[3]), .S (n_80),
-       .Q (n_86));
-  DF3 \bist_controller_ncounter_reg[1] (.C (clock), .D (n_79), .Q
-       (bist_controller_ncounter[1]), .QN (n_42));
-  DFS1 \bist_lfsr_dff_reg[0] (.C (clock), .D (n_69), .SD
-       (lfsr_seed[0]), .SE (reset), .Q (lsfr_in_bus_w[0]), .QN
+  NOR40 g1175(.A (reset), .B (n_18), .C (n_29), .D (n_92), .Q (n_36));
+  IMUX20 g1176(.A (n_22), .B (ncounter[1]), .S (n_92), .Q (n_35));
+  DFS1 reset_latch_reg(.C (start), .D (reset), .SD (n_9), .SE (start),
+       .Q (reset_latch), .QN (UNCONNECTED6));
+  NOR21 g1178(.A (n_24), .B (n_95), .Q (n_34));
+  NAND22 g1179(.A (n_25), .B (n_7), .Q (n_33));
+  NOR21 g1180(.A (n_26), .B (n_0), .Q (n_32));
+  NAND31 g1181(.A (state[0]), .B (n_28), .C (n_17), .Q (n_31));
+  OAI212 g1182(.A (ncounter[0]), .B (ncounter[1]), .C (ncounter[3]), .Q
+       (n_30));
+  INV2 g1183(.A (n_28), .Q (n_29));
+  NOR40 g1184(.A (ncounter[0]), .B (ncounter[10]), .C (ncounter[2]), .D
+       (n_16), .Q (n_28));
+  OAI212 g1185(.A (state[0]), .B (n_13), .C (n_14), .Q (n_27));
+  INV3 g1186(.A (n_25), .Q (n_26));
+  AOI211 g1187(.A (n_13), .B (n_2), .C (reset), .Q (n_25));
+  CLKIN2 g1188(.A (n_23), .Q (n_24));
+  ADD22 g1189(.A (ncounter[1]), .B (ncounter[0]), .CO (n_23), .S
+       (n_22));
+  NOR21 g1190(.A (state[2]), .B (n_14), .Q (n_21));
+  NAND31 g1191(.A (n_5), .B (state[0]), .C (n_102), .Q (n_20));
+  NOR31 g1192(.A (state[0]), .B (reset_latch), .C (n_7), .Q (n_19));
+  INV2 g1193(.A (n_17), .Q (n_18));
+  NOR31 g1194(.A (n_11), .B (n_4), .C (ncounter[8]), .Q (n_17));
+  CLKIN2 g1195(.A (n_15), .Q (n_16));
+  NOR40 g1196(.A (ncounter[4]), .B (ncounter[5]), .C (ncounter[6]), .D
+       (n_3), .Q (n_15));
+  NAND22 g1198(.A (n_93), .B (state[0]), .Q (n_14));
+  NOR21 g1199(.A (state[1]), .B (n_6), .Q (n_13));
+  NOR21 g1200(.A (n_1), .B (n_103), .Q (n_12));
+  NAND22 g1201(.A (ncounter[9]), .B (ncounter[7]), .Q (n_11));
+  NOR20 g1202(.A (start), .B (reset), .Q (n_10));
+  INV2 g1203(.A (reset), .Q (n_9));
+  INV2 g1243(.A (start), .Q (n_7));
+  XOR21 g2(.A (n_92), .B (ncounter[0]), .Q (n_0));
+  OAI212 g1247(.A (ncounter[1]), .B (ncounter[2]), .C (ncounter[3]), .Q
+       (n_104));
+  XNR21 g1248(.A (n_105), .B (ncounter[10]), .Q (n_106));
+  NOR31 g3(.A (n_94), .B (n_58), .C (n_92), .Q (n_105));
+endmodule
+
+module lfsr(clk, rst, scan_in, out, scan_out);
+  input clk, rst, scan_in;
+  output [3:0] out;
+  output scan_out;
+  wire clk, rst, scan_in;
+  wire [3:0] out;
+  wire scan_out;
+  wire UNCONNECTED7, UNCONNECTED8, UNCONNECTED9, UNCONNECTED10, n_0,
+       n_1, n_2, n_3;
+  wire n_4, n_5, n_6, n_7, n_8;
+  DF3 \dff_reg[3] (.C (clk), .D (n_8), .Q (out[3]), .QN (UNCONNECTED7));
+  INV2 g6(.A (n_7), .Q (n_8));
+  NOR21 g7(.A (out[2]), .B (rst), .Q (n_7));
+  DF3 \dff_reg[2] (.C (clk), .D (n_6), .Q (out[2]), .QN (UNCONNECTED8));
+  INV2 g9(.A (n_5), .Q (n_6));
+  NOR21 g10(.A (out[1]), .B (rst), .Q (n_5));
+  DF3 \dff_reg[1] (.C (clk), .D (n_4), .Q (out[1]), .QN (UNCONNECTED9));
+  INV2 g12(.A (n_3), .Q (n_4));
+  NOR21 g13(.A (out[0]), .B (rst), .Q (n_3));
+  DF3 \dff_reg[0] (.C (clk), .D (n_2), .Q (out[0]), .QN
+       (UNCONNECTED10));
+  NAND22 g22(.A (n_1), .B (n_0), .Q (n_2));
+  XNR31 g23(.A (out[3]), .B (out[2]), .C (scan_in), .Q (n_1));
+  INV2 g24(.A (rst), .Q (n_0));
+endmodule
+
+module misr(clk, rst, scan_in, grant_o, signature, scan_out);
+  input clk, rst, scan_in;
+  input [3:0] grant_o;
+  output [15:0] signature;
+  output scan_out;
+  wire clk, rst, scan_in;
+  wire [3:0] grant_o;
+  wire [15:0] signature;
+  wire scan_out;
+  wire UNCONNECTED11, UNCONNECTED12, UNCONNECTED13, UNCONNECTED14,
+       UNCONNECTED15, UNCONNECTED16, UNCONNECTED17, UNCONNECTED18;
+  wire UNCONNECTED19, UNCONNECTED20, n_0, n_1, n_2, n_3, n_4, n_5;
+  wire n_6, n_7, n_8, n_9, n_10, n_12, n_13, n_14;
+  wire n_15, n_16, n_17, n_18, n_19, n_20, n_21, n_22;
+  wire n_23, n_24, n_25, n_26, n_27, n_28, n_29, n_30;
+  wire n_31, n_32, n_33;
+  DF3 \dff_reg[6] (.C (clk), .D (n_33), .Q (signature[6]), .QN (n_0));
+  CLKIN2 g76(.A (n_32), .Q (n_33));
+  NOR21 g77(.A (signature[5]), .B (rst), .Q (n_32));
+  DF3 \dff_reg[5] (.C (clk), .D (n_31), .Q (signature[5]), .QN
+       (UNCONNECTED11));
+  CLKIN2 g79(.A (n_30), .Q (n_31));
+  NOR21 g80(.A (signature[4]), .B (rst), .Q (n_30));
+  DF3 \dff_reg[4] (.C (clk), .D (n_29), .Q (signature[4]), .QN
+       (UNCONNECTED12));
+  NAND22 g82(.A (n_1), .B (n_28), .Q (n_29));
+  DF3 \dff_reg[14] (.C (clk), .D (n_27), .Q (signature[14]), .QN
+       (UNCONNECTED13));
+  XNR21 g84(.A (signature[3]), .B (scan_in), .Q (n_28));
+  NAND22 g85(.A (n_26), .B (n_1), .Q (n_27));
+  DF3 \dff_reg[3] (.C (clk), .D (n_25), .Q (signature[3]), .QN
+       (UNCONNECTED14));
+  XNR21 g87(.A (signature[13]), .B (signature[15]), .Q (n_26));
+  NAND22 g88(.A (n_24), .B (n_1), .Q (n_25));
+  DF3 \dff_reg[13] (.C (clk), .D (n_23), .Q (signature[13]), .QN
        (UNCONNECTED15));
-  DFE1 bist_controller_bist_end_reg(.C (clock), .D (n_52), .E (n_72),
-       .Q (bist_end), .QN (UNCONNECTED16));
-  OAI212 g2048(.A (n_43), .B (n_77), .C (n_162), .Q (n_85));
-  OAI212 g2049(.A (n_62), .B (n_54), .C (n_78), .Q (n_84));
-  ADD22 g2050(.A (n_74), .B (bist_controller_ncounter[4]), .CO (n_82),
-       .S (n_83));
-  ADD22 g2051(.A (n_64), .B (bist_controller_ncounter[2]), .CO (n_80),
-       .S (n_81));
-  DF3 \bist_controller_state_reg[2] (.C (clock), .D (n_76), .Q
-       (bist_controller_state[2]), .QN (n_122));
-  NOR21 g2053(.A (n_67), .B (n_75), .Q (n_79));
-  OAI2111 g2054(.A (n_57), .B (n_65), .C (bist_controller_n_114), .D
-       (n_71), .Q (n_78));
-  DF3 \bist_controller_ncounter_reg[0] (.C (clock), .D (n_70), .Q
-       (bist_controller_ncounter[0]), .QN (n_46));
-  AOI211 g2056(.A (n_53), .B (bist_controller_ncounter[3]), .C (n_154),
-       .Q (n_77));
-  NOR40 g2057(.A (reset), .B (n_57), .C (n_65), .D (n_49), .Q (n_76));
-  IMUX20 g2058(.A (bist_controller_ncounter[1]), .B (n_63), .S
-       (bist_controller_n_114), .Q (n_75));
-  DFS1 bist_controller_reset_latch_reg(.C (bist_start), .D (reset), .SD
-       (n_50), .SE (bist_start), .Q (bist_controller_reset_latch), .QN
-       (UNCONNECTED17));
-  INV2 g2060(.A (n_73), .Q (n_74));
-  NAND22 g2061(.A (n_64), .B (n_154), .Q (n_73));
-  NAND22 g2062(.A (n_66), .B (n_48), .Q (n_72));
-  AOI211 g2063(.A (n_54), .B (n_59), .C (reset), .Q (n_71));
-  NOR21 g2064(.A (n_67), .B (n_56), .Q (n_70));
-  XOR31 g2065(.A (lsfr_in_bus_w[2]), .B (lsfr_in_bus_w[3]), .C
-       (signature_out[7]), .Q (n_69));
-  NAND22 g2066(.A (bist_controller_state[1]), .B (n_61), .Q (n_68));
-  INV3 g2067(.A (n_66), .Q (n_67));
-  AOI211 g2068(.A (n_54), .B (bist_controller_state[2]), .C (reset), .Q
-       (n_66));
-  NAND22 g2069(.A (n_58), .B (n_60), .Q (n_65));
-  ADD22 g2070(.A (bist_controller_ncounter[1]), .B
-       (bist_controller_ncounter[0]), .CO (n_64), .S (n_63));
-  DF3 \bist_misr_dff_reg[7] (.C (clock), .D (n_55), .Q
-       (signature_out[7]), .QN (n_123));
-  INV2 g2072(.A (n_61), .Q (n_62));
-  NOR31 g2073(.A (bist_controller_n_114), .B
-       (bist_controller_state[2]), .C (reset), .Q (n_61));
-  NOR31 g2074(.A (bist_controller_ncounter[0]), .B
-       (bist_controller_ncounter[10]), .C
-       (bist_controller_ncounter[2]), .Q (n_60));
-  NOR31 g2075(.A (bist_controller_state[2]), .B
-       (bist_controller_reset_latch), .C (n_48), .Q (n_59));
-  NOR40 g2076(.A (bist_controller_ncounter[4]), .B
-       (bist_controller_ncounter[5]), .C (bist_controller_ncounter[6]),
-       .D (n_45), .Q (n_58));
-  NAND41 g2077(.A (n_44), .B (bist_controller_ncounter[7]), .C
-       (bist_controller_ncounter[9]), .D (bist_controller_ncounter[1]),
-       .Q (n_57));
-  IMUX21 g2078(.A (bist_controller_n_114), .B (n_49), .S
-       (bist_controller_ncounter[0]), .Q (n_56));
-  NAND22 g2079(.A (n_51), .B (n_50), .Q (n_55));
-  NOR21 g2080(.A (bist_controller_state[0]), .B
-       (bist_controller_state[1]), .Q (n_54));
-  NAND22 g2081(.A (n_42), .B (n_46), .Q (n_53));
-  NOR20 g2082(.A (bist_start), .B (reset), .Q (n_52));
-  INV2 g2120(.A (bist_start), .Q (n_48));
-  IMUX20 g2303(.A (n_35), .B (n_9), .S (n_27), .Q (uut_n_110));
-  IMUX20 g2304(.A (n_34), .B (n_1), .S (n_27), .Q (uut_n_111));
-  IMUX20 g2305(.A (n_33), .B (n_7), .S (n_27), .Q (uut_n_108));
-  IMUX20 g2306(.A (n_37), .B (n_4), .S (n_27), .Q (uut_n_107));
-  IMUX20 g2307(.A (n_39), .B (n_2), .S (n_27), .Q (uut_n_105));
-  IMUX20 g2308(.A (n_36), .B (n_3), .S (n_27), .Q (uut_n_106));
-  INV3 g2309(.A (n_41), .Q (uut_n_103));
-  INV3 g2310(.A (n_40), .Q (uut_n_102));
-  INV3 g2311(.A (n_38), .Q (uut_n_104));
-  OAI211 g2312(.A (n_4), .B (n_30), .C (n_29), .Q (uut_n_87));
-  OAI211 g2313(.A (n_3), .B (n_30), .C (n_28), .Q (uut_n_89));
-  AOI221 g2314(.A (n_31), .B (uut_coda3[0]), .C (n_27), .D
-       (uut_coda2[0]), .Q (n_41));
-  AOI221 g2315(.A (n_31), .B (uut_coda3[1]), .C (n_27), .D
-       (uut_coda2[1]), .Q (n_40));
-  OAI222 g2316(.A (n_31), .B (uut_coda2[0]), .C (uut_n_98), .D
-       (uut_coda1[0]), .Q (n_39));
-  AOI221 g2317(.A (n_31), .B (uut_coda3[2]), .C (n_27), .D
-       (uut_coda2[2]), .Q (n_38));
-  OAI222 g2318(.A (n_31), .B (uut_coda2[1]), .C (uut_n_98), .D
-       (uut_coda1[1]), .Q (n_37));
-  OAI222 g2319(.A (n_31), .B (uut_coda2[2]), .C (uut_n_98), .D
-       (uut_coda1[2]), .Q (n_36));
-  OAI222 g2320(.A (n_31), .B (uut_coda3[0]), .C (uut_n_98), .D
-       (uut_coda2[0]), .Q (n_35));
-  OAI222 g2321(.A (n_31), .B (uut_coda3[1]), .C (uut_n_98), .D
-       (uut_coda2[1]), .Q (n_34));
-  OAI222 g2322(.A (n_31), .B (uut_coda3[2]), .C (uut_n_98), .D
-       (uut_coda2[2]), .Q (n_33));
-  OAI2111 g2323(.A (n_9), .B (n_24), .C (n_32), .D (n_23), .Q
-       (uut_n_84));
-  NAND22 g2324(.A (n_31), .B (uut_coda0[0]), .Q (n_32));
-  INV2 g2325(.A (n_31), .Q (n_30));
-  OAI2111 g2326(.A (uut_n_98), .B (uut_n_73), .C (n_26), .D (n_19), .Q
-       (n_31));
-  AOI2111 g2327(.A (uut_n_98), .B (uut_coda1[1]), .C (n_22), .D (n_21),
-       .Q (n_29));
-  AOI2111 g2328(.A (uut_n_98), .B (uut_coda1[2]), .C (n_14), .D (n_21),
-       .Q (n_28));
-  NAND22 g2329(.A (n_23), .B (n_25), .Q (n_27));
-  AOI221 g2330(.A (n_18), .B (n_20), .C (n_15), .D (uut_fu2), .Q
-       (n_26));
-  NOR21 g2331(.A (n_14), .B (n_22), .Q (n_25));
-  INV3 g2332(.A (n_24), .Q (uut_n_98));
-  NAND31 g2333(.A (uut_stato[0]), .B (n_13), .C (uut_stato[1]), .Q
+  XNR31 g90(.A (signature[2]), .B (grant_o[0]), .C (signature[15]), .Q
        (n_24));
-  AOI311 g2334(.A (n_6), .B (uut_ru3), .C (n_18), .D (n_21), .Q (n_23));
-  NOR21 g2335(.A (uut_fu2), .B (n_16), .Q (n_22));
-  NOR31 g2336(.A (n_17), .B (n_10), .C (uut_ru3), .Q (n_21));
-  MUX22 g2337(.A (n_10), .B (uut_fu3), .S (uut_ru3), .Q (n_20));
-  NOR31 g2338(.A (n_3), .B (n_2), .C (n_4), .Q (uut_n_63));
-  NAND31 g2339(.A (uut_n_73), .B (uut_ru1), .C (uut_fu1), .Q (n_19));
-  INV2 g2340(.A (n_18), .Q (n_17));
-  NOR31 g2341(.A (n_11), .B (uut_ru1), .C (uut_ru2), .Q (n_18));
-  NOR31 g2342(.A (n_3), .B (uut_coda0[0]), .C (uut_coda0[1]), .Q
-       (uut_n_61));
-  NOR31 g2343(.A (n_4), .B (uut_coda0[2]), .C (uut_coda0[0]), .Q
-       (uut_n_60));
-  NOR31 g2344(.A (n_2), .B (uut_coda0[2]), .C (uut_coda0[1]), .Q
-       (uut_n_59));
-  INV2 g2345(.A (n_15), .Q (n_16));
-  NOR31 g2346(.A (n_11), .B (n_8), .C (uut_ru1), .Q (n_15));
-  NOR31 g2347(.A (n_11), .B (n_5), .C (uut_fu1), .Q (n_14));
-  INV3 g2348(.A (n_12), .Q (n_13));
-  NOR40 g2349(.A (uut_fu4), .B (uut_fu3), .C (uut_fu1), .D (uut_fu2),
-       .Q (n_12));
-  INV2 g2350(.A (uut_n_73), .Q (n_11));
-  NOR21 g2351(.A (uut_stato[1]), .B (uut_stato[0]), .Q (uut_n_73));
-  NAND22 g2352(.A (n_0), .B (uut_ru4), .Q (n_10));
-  INV2 g2353(.A (uut_coda1[0]), .Q (n_9));
-  INV2 g2354(.A (uut_ru2), .Q (n_8));
-  INV2 g2355(.A (uut_coda1[2]), .Q (n_7));
-  CLKIN2 g2356(.A (uut_fu3), .Q (n_6));
-  INV2 g2357(.A (uut_ru1), .Q (n_5));
-  CLKIN3 g2358(.A (uut_coda0[1]), .Q (n_4));
-  CLKIN3 g2359(.A (uut_coda0[2]), .Q (n_3));
-  INV2 g2360(.A (uut_coda0[0]), .Q (n_2));
-  INV2 g2361(.A (uut_coda1[1]), .Q (n_1));
-  INV2 g2362(.A (uut_fu4), .Q (n_0));
-  XNR21 g2(.A (n_165), .B (bist_controller_ncounter[10]), .Q (n_166));
-  NAND31 g3(.A (bist_controller_ncounter[9]), .B
-       (bist_controller_ncounter[8]), .C (n_99), .Q (n_165));
+  NAND22 g91(.A (n_1), .B (n_8), .Q (n_23));
+  DF3 \dff_reg[12] (.C (clk), .D (n_22), .Q (signature[12]), .QN (n_8));
+  NAND22 g94(.A (n_21), .B (n_1), .Q (n_22));
+  DF3 \dff_reg[2] (.C (clk), .D (n_20), .Q (signature[2]), .QN
+       (UNCONNECTED16));
+  XNR21 g96(.A (signature[11]), .B (signature[15]), .Q (n_21));
+  NAND22 g97(.A (n_1), .B (n_19), .Q (n_20));
+  DF3 \dff_reg[11] (.C (clk), .D (n_18), .Q (signature[11]), .QN
+       (UNCONNECTED17));
+  XNR21 g99(.A (signature[1]), .B (grant_o[1]), .Q (n_19));
+  NAND22 g100(.A (n_1), .B (n_7), .Q (n_18));
+  DF3 \dff_reg[1] (.C (clk), .D (n_16), .Q (signature[1]), .QN
+       (UNCONNECTED18));
+  DF3 \dff_reg[10] (.C (clk), .D (n_17), .Q (signature[10]), .QN (n_7));
+  NAND22 g104(.A (n_1), .B (n_6), .Q (n_17));
+  NAND22 g105(.A (n_1), .B (n_15), .Q (n_16));
+  DF3 \dff_reg[9] (.C (clk), .D (n_14), .Q (signature[9]), .QN (n_6));
+  XNR21 g108(.A (signature[0]), .B (grant_o[2]), .Q (n_15));
+  NAND22 g109(.A (n_1), .B (n_5), .Q (n_14));
+  DF3 \dff_reg[0] (.C (clk), .D (n_13), .Q (signature[0]), .QN
+       (UNCONNECTED19));
+  DF3 \dff_reg[8] (.C (clk), .D (n_12), .Q (signature[8]), .QN (n_5));
+  NAND22 g113(.A (n_1), .B (n_10), .Q (n_13));
+  NAND22 g114(.A (n_1), .B (n_9), .Q (n_12));
+  INV3 g115(.A (rst), .Q (n_1));
+  CLKIN3 g116(.A (grant_o[3]), .Q (n_10));
+  DF3 \dff_reg[15] (.C (clk), .D (n_4), .Q (signature[15]), .QN
+       (UNCONNECTED20));
+  NAND22 g22(.A (n_1), .B (n_3), .Q (n_4));
+  DF3 \dff_reg[7] (.C (clk), .D (n_2), .Q (signature[7]), .QN (n_9));
+  XNR21 g24(.A (signature[14]), .B (signature[15]), .Q (n_3));
+  NAND22 g25(.A (n_1), .B (n_0), .Q (n_2));
+endmodule
+
+module lfsrmux(in, lfsr, mode, outport);
+  input [3:0] in, lfsr;
+  input mode;
+  output [3:0] outport;
+  wire [3:0] in, lfsr;
+  wire mode;
+  wire [3:0] outport;
+  MUX22 g69(.A (in[3]), .B (lfsr[3]), .S (mode), .Q (outport[3]));
+  MUX22 g70(.A (in[0]), .B (lfsr[0]), .S (mode), .Q (outport[0]));
+  MUX22 g71(.A (in[2]), .B (lfsr[2]), .S (mode), .Q (outport[2]));
+  MUX22 g72(.A (in[1]), .B (lfsr[1]), .S (mode), .Q (outport[1]));
+endmodule
+
+module circuito06(clock, reset, request1, request2, request3, request4,
+     grant_o, scan_en, scan_in, scan_out);
+  input clock, reset, request1, request2, request3, request4, scan_en,
+       scan_in;
+  output [3:0] grant_o;
+  output scan_out;
+  wire clock, reset, request1, request2, request3, request4, scan_en,
+       scan_in;
+  wire [3:0] grant_o;
+  wire scan_out;
+  wire [2:0] coda0;
+  wire [2:0] coda1;
+  wire [2:0] coda2;
+  wire [2:0] coda3;
+  wire [1:0] stato;
+  wire fu1, fu2, fu3, fu4, n_0, n_1, n_2, n_3;
+  wire n_4, n_5, n_6, n_7, n_8, n_9, n_10, n_11;
+  wire n_12, n_13, n_14, n_15, n_16, n_17, n_18, n_19;
+  wire n_20, n_21, n_22, n_23, n_24, n_25, n_26, n_27;
+  wire n_28, n_29, n_30, n_31, n_32, n_33, n_34, n_35;
+  wire n_36, n_37, n_38, n_39, n_40, n_41, n_42, n_43;
+  wire n_45, n_46, n_47, n_48, n_49, n_51, n_52, n_53;
+  wire n_54, n_55, n_56, n_58, n_59, n_60, n_61, n_62;
+  wire n_63, n_64, n_65, n_66, n_67, n_68, n_70, n_71;
+  wire n_72, n_74, n_76, n_79, n_81, n_83, n_85, n_86;
+  wire n_87, n_89, n_90, n_91, n_92, n_93, n_94, n_95;
+  wire n_96, n_98, ru1, ru2, ru3, ru4;
+  DFSC1 \coda0_reg[0] (.RN (n_42), .C (clock), .D (n_47), .SD
+       (scan_in), .SE (scan_en), .Q (coda0[0]), .QN (n_67));
+  DFSC1 \coda0_reg[1] (.RN (n_42), .C (clock), .D (n_46), .SD (n_67),
+       .SE (scan_en), .Q (coda0[1]), .QN (n_70));
+  DFSC1 \coda0_reg[2] (.RN (n_42), .C (clock), .D (n_45), .SD (n_70),
+       .SE (scan_en), .Q (coda0[2]), .QN (n_68));
+  DFSC1 \coda1_reg[0] (.RN (n_42), .C (clock), .D (n_92), .SD (n_68),
+       .SE (scan_en), .Q (coda1[0]), .QN (n_56));
+  DFSC1 \coda1_reg[1] (.RN (n_42), .C (clock), .D (n_90), .SD (n_56),
+       .SE (scan_en), .Q (coda1[1]), .QN (n_58));
+  DFSC1 \coda1_reg[2] (.RN (n_42), .C (clock), .D (n_91), .SD (n_58),
+       .SE (scan_en), .Q (coda1[2]), .QN (n_59));
+  DFSC1 \coda2_reg[0] (.RN (n_42), .C (clock), .D (n_87), .SD (n_59),
+       .SE (scan_en), .Q (coda2[0]), .QN (n_60));
+  DFSC1 \coda2_reg[1] (.RN (n_42), .C (clock), .D (n_86), .SD (n_60),
+       .SE (scan_en), .Q (coda2[1]), .QN (n_61));
+  DFSC1 \coda2_reg[2] (.RN (n_42), .C (clock), .D (n_89), .SD (n_61),
+       .SE (scan_en), .Q (coda2[2]), .QN (n_62));
+  DFSC1 \coda3_reg[0] (.RN (n_42), .C (clock), .D (n_94), .SD (n_62),
+       .SE (scan_en), .Q (coda3[0]), .QN (n_65));
+  DFSC1 \coda3_reg[1] (.RN (n_42), .C (clock), .D (n_95), .SD (n_65),
+       .SE (scan_en), .Q (coda3[1]), .QN (n_66));
+  DFSC1 \coda3_reg[2] (.RN (n_42), .C (clock), .D (n_93), .SD (n_66),
+       .SE (scan_en), .Q (coda3[2]), .QN (n_64));
+  DFSEC1 fu1_reg(.RN (n_42), .C (clock), .D (ru1), .E (n_49), .SD
+       (n_64), .SE (scan_en), .Q (fu1), .QN (n_83));
+  DFSEC1 fu2_reg(.RN (n_42), .C (clock), .D (ru2), .E (n_49), .SD
+       (n_83), .SE (scan_en), .Q (fu2), .QN (n_79));
+  DFSEC1 fu3_reg(.RN (n_42), .C (clock), .D (ru3), .E (n_49), .SD
+       (n_79), .SE (scan_en), .Q (fu3), .QN (n_85));
+  DFSEC1 fu4_reg(.RN (n_42), .C (clock), .D (ru4), .E (n_49), .SD
+       (n_85), .SE (scan_en), .Q (fu4), .QN (n_81));
+  DFSEC1 \grant_reg[0] (.RN (n_42), .C (clock), .D (n_51), .E (n_43),
+       .SD (n_81), .SE (scan_en), .Q (grant_o[0]), .QN (n_71));
+  DFSEC1 \grant_reg[1] (.RN (n_42), .C (clock), .D (n_55), .E (n_43),
+       .SD (n_71), .SE (scan_en), .Q (grant_o[1]), .QN (n_72));
+  DFSEC1 \grant_reg[2] (.RN (n_42), .C (clock), .D (n_53), .E (n_43),
+       .SD (n_72), .SE (scan_en), .Q (grant_o[2]), .QN (n_74));
+  DFSEC1 \grant_reg[3] (.RN (n_42), .C (clock), .D (n_52), .E (n_43),
+       .SD (n_74), .SE (scan_en), .Q (grant_o[3]), .QN (n_76));
+  DFSEC1 ru1_reg(.RN (n_42), .C (clock), .D (request1), .E (stato[0]),
+       .SD (n_76), .SE (scan_en), .Q (ru1), .QN (n_48));
+  DFSEC1 ru2_reg(.RN (n_42), .C (clock), .D (request2), .E (stato[0]),
+       .SD (n_48), .SE (scan_en), .Q (ru2), .QN (n_96));
+  DFSEC1 ru3_reg(.RN (n_42), .C (clock), .D (request3), .E (stato[0]),
+       .SD (n_96), .SE (scan_en), .Q (ru3), .QN (n_54));
+  DFSEC1 ru4_reg(.RN (n_42), .C (clock), .D (request4), .E (stato[0]),
+       .SD (n_54), .SE (scan_en), .Q (ru4), .QN (n_63));
+  TFSC1 \stato_reg[0] (.RN (n_42), .C (clock), .SD (n_63), .SE
+       (scan_en), .Q (n_98), .QN (stato[0]));
+  DFSC1 \stato_reg[1] (.RN (n_42), .C (clock), .D (n_49), .SD (n_98),
+       .SE (scan_en), .Q (stato[1]), .QN (scan_out));
+  INV0 g465(.A (reset), .Q (n_42));
+  OAI212 g1301(.A (n_6), .B (n_24), .C (n_40), .Q (n_92));
+  OAI212 g1302(.A (n_7), .B (n_24), .C (n_39), .Q (n_90));
+  OAI212 g1303(.A (n_5), .B (n_24), .C (n_38), .Q (n_91));
+  NAND22 g1304(.A (n_36), .B (n_30), .Q (n_87));
+  NAND22 g1305(.A (n_35), .B (n_29), .Q (n_86));
+  NAND22 g1306(.A (n_34), .B (n_28), .Q (n_89));
+  INV3 g1307(.A (n_41), .Q (n_94));
+  OAI211 g1308(.A (n_7), .B (n_31), .C (n_27), .Q (n_46));
+  OAI211 g1309(.A (n_5), .B (n_31), .C (n_26), .Q (n_45));
+  AOI221 g1310(.A (n_32), .B (coda3[0]), .C (n_23), .D (coda2[0]), .Q
+       (n_41));
+  AOI221 g1311(.A (n_32), .B (coda1[0]), .C (n_43), .D (coda2[0]), .Q
+       (n_40));
+  AOI221 g1312(.A (n_32), .B (coda1[1]), .C (n_43), .D (coda2[1]), .Q
+       (n_39));
+  AOI221 g1313(.A (n_32), .B (coda1[2]), .C (n_43), .D (coda2[2]), .Q
+       (n_38));
+  INV3 g1314(.A (n_37), .Q (n_95));
+  INV3 g1315(.A (n_33), .Q (n_93));
+  AOI221 g1316(.A (n_32), .B (coda3[1]), .C (n_23), .D (coda2[1]), .Q
+       (n_37));
+  AOI221 g1317(.A (n_32), .B (coda2[0]), .C (n_43), .D (coda3[0]), .Q
+       (n_36));
+  AOI221 g1318(.A (n_32), .B (coda2[1]), .C (n_43), .D (coda3[1]), .Q
+       (n_35));
+  AOI221 g1319(.A (n_32), .B (coda2[2]), .C (n_43), .D (coda3[2]), .Q
+       (n_34));
+  AOI221 g1320(.A (n_32), .B (coda3[2]), .C (n_23), .D (coda2[2]), .Q
+       (n_33));
+  OAI2111 g1321(.A (n_6), .B (n_31), .C (n_20), .D (n_25), .Q (n_47));
+  INV2 g1322(.A (n_32), .Q (n_31));
+  OAI2111 g1323(.A (n_43), .B (n_49), .C (n_22), .D (n_16), .Q (n_32));
+  NAND22 g1324(.A (n_23), .B (coda1[0]), .Q (n_30));
+  NAND22 g1325(.A (n_23), .B (coda1[1]), .Q (n_29));
+  NAND22 g1326(.A (n_23), .B (coda1[2]), .Q (n_28));
+  AOI2111 g1327(.A (n_43), .B (coda1[1]), .C (n_19), .D (n_18), .Q
+       (n_27));
+  AOI2111 g1328(.A (n_43), .B (coda1[2]), .C (n_13), .D (n_18), .Q
+       (n_26));
+  NAND22 g1329(.A (n_43), .B (coda1[0]), .Q (n_25));
+  INV3 g1330(.A (n_24), .Q (n_23));
+  NOR31 g1331(.A (n_21), .B (n_19), .C (n_13), .Q (n_24));
+  AOI221 g1332(.A (n_15), .B (n_17), .C (n_12), .D (fu2), .Q (n_22));
+  NOR31 g1333(.A (n_3), .B (n_10), .C (n_1), .Q (n_43));
+  INV2 g1334(.A (n_20), .Q (n_21));
+  AOI311 g1335(.A (n_2), .B (ru3), .C (n_15), .D (n_18), .Q (n_20));
+  NOR21 g1336(.A (fu2), .B (n_11), .Q (n_19));
+  NOR31 g1337(.A (n_14), .B (n_8), .C (ru3), .Q (n_18));
+  MUX22 g1338(.A (n_8), .B (fu3), .S (ru3), .Q (n_17));
+  NAND31 g1339(.A (n_49), .B (ru1), .C (fu1), .Q (n_16));
+  NOR31 g1340(.A (n_5), .B (n_7), .C (n_6), .Q (n_51));
+  CLKIN2 g1341(.A (n_15), .Q (n_14));
+  NOR31 g1342(.A (n_9), .B (ru1), .C (ru2), .Q (n_15));
+  NOR31 g1343(.A (n_5), .B (coda0[1]), .C (coda0[0]), .Q (n_52));
+  NOR31 g1344(.A (n_7), .B (coda0[2]), .C (coda0[0]), .Q (n_53));
+  NOR31 g1345(.A (n_6), .B (coda0[2]), .C (coda0[1]), .Q (n_55));
+  NOR31 g1346(.A (n_9), .B (n_4), .C (fu1), .Q (n_13));
+  CLKIN2 g1347(.A (n_11), .Q (n_12));
+  NAND31 g1348(.A (n_49), .B (n_4), .C (ru2), .Q (n_11));
+  NOR40 g1349(.A (fu2), .B (fu3), .C (fu1), .D (fu4), .Q (n_10));
+  INV3 g1350(.A (n_9), .Q (n_49));
+  NAND22 g1351(.A (n_1), .B (n_3), .Q (n_9));
+  NAND22 g1352(.A (n_0), .B (ru4), .Q (n_8));
+  CLKIN3 g1353(.A (coda0[1]), .Q (n_7));
+  CLKIN3 g1354(.A (coda0[0]), .Q (n_6));
+  CLKIN3 g1355(.A (coda0[2]), .Q (n_5));
+  INV2 g1356(.A (ru1), .Q (n_4));
+  INV3 g1357(.A (stato[1]), .Q (n_3));
+  INV2 g1358(.A (fu3), .Q (n_2));
+  INV3 g1359(.A (stato[0]), .Q (n_1));
+  INV2 g1360(.A (fu4), .Q (n_0));
+endmodule
+
+module top(clock, reset, request1, request2, request3, request4,
+     grant_o, bist_start, bist_end, signature_out, pass_fail);
+  input clock, reset, request1, request2, request3, request4,
+       bist_start;
+  output [3:0] grant_o;
+  output bist_end, pass_fail;
+  output [15:0] signature_out;
+  wire clock, reset, request1, request2, request3, request4, bist_start;
+  wire [3:0] grant_o;
+  wire bist_end, pass_fail;
+  wire [15:0] signature_out;
+  wire [3:0] lsfr_in_bus_w;
+  wire [3:0] input_mux_out_w;
+  wire UNCONNECTED21, UNCONNECTED22, UNCONNECTED23, bist_running_w,
+       init_w, n_0, n_1, n_2;
+  wire n_3, n_4, n_5, n_6, n_7, n_8, n_9, n_10;
+  wire n_11, n_14, scan_toggle_w, uut_scan_w;
+  controller bist_controller(.clk (clock), .reset (reset), .start
+       (bist_start), .init (init_w), .toggle (scan_toggle_w), .running
+       (bist_running_w), .finish (UNCONNECTED21), .bist_end (bist_end));
+  lfsr bist_lfsr(.clk (clock), .rst (init_w), .scan_in
+       (signature_out[7]), .out (lsfr_in_bus_w), .scan_out
+       (UNCONNECTED22));
+  misr bist_misr(.clk (clock), .rst (init_w), .scan_in (uut_scan_w),
+       .grant_o (grant_o), .signature (signature_out), .scan_out
+       (UNCONNECTED23));
+  lfsrmux mux1(.in ({request4, request3, request2, request1}), .lfsr
+       (lsfr_in_bus_w), .mode (bist_running_w), .outport
+       (input_mux_out_w));
+  circuito06 uut(.clock (clock), .reset (n_14), .request1
+       (input_mux_out_w[0]), .request2 (input_mux_out_w[1]), .request3
+       (input_mux_out_w[2]), .request4 (input_mux_out_w[3]), .grant_o
+       (grant_o), .scan_en (scan_toggle_w), .scan_in
+       (lsfr_in_bus_w[3]), .scan_out (uut_scan_w));
+  NOR40 g159(.A (n_7), .B (n_8), .C (n_9), .D (n_11), .Q (pass_fail));
+  NAND30 g160(.A (n_10), .B (n_0), .C (signature_out[1]), .Q (n_11));
+  NOR30 g161(.A (signature_out[15]), .B (n_1), .C (signature_out[0]),
+       .Q (n_10));
+  NAND40 g162(.A (signature_out[7]), .B (n_3), .C (signature_out[9]),
+       .D (signature_out[8]), .Q (n_9));
+  NAND40 g163(.A (signature_out[11]), .B (signature_out[13]), .C (n_4),
+       .D (signature_out[14]), .Q (n_8));
+  NAND40 g164(.A (n_2), .B (n_5), .C (signature_out[4]), .D
+       (signature_out[6]), .Q (n_7));
+  INV2 g165(.A (n_6), .Q (n_14));
+  NOR20 g166(.A (reset), .B (init_w), .Q (n_6));
+  INV2 g167(.A (signature_out[5]), .Q (n_5));
+  INV2 g168(.A (signature_out[12]), .Q (n_4));
+  INV2 g169(.A (signature_out[10]), .Q (n_3));
+  INV2 g170(.A (signature_out[3]), .Q (n_2));
+  INV2 g171(.A (bist_end), .Q (n_1));
+  INV2 g172(.A (signature_out[2]), .Q (n_0));
 endmodule
 

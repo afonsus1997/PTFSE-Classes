@@ -51,8 +51,18 @@ circular_bist_test_wave:
 	@./circular_bist_test.out 
 	@gtkwave circular_bist_test.vcd gtkcircularbist.gtkw &
 
+syn_test:
+	@iverilog circular_bist_tb.v top_syn.v CadenceFiles/*.v -o circular_bist_test.out
+	@./circular_bist_test.out 
+	
+
+syn_test_wave:
+	@iverilog circular_bist_tb.v top_syn.v CadenceFiles/*.v -o circular_bist_test.out
+	@./circular_bist_test.out 
+	@gtkwave circular_bist_test.vcd gtkcircularbist.gtkw &
+
 check_duplicates:
-	@iverilog circular_bist_tb.v misr.v lfsr.v top.v controller.v wrappers.v circuito06_scan_syn.v CadenceFiles/*.v -o circular_bist_test.out
+	@iverilog circular_bist_tb.v top_syn.v CadenceFiles/*.v -o circular_bist_test.out
 	@./circular_bist_test.out > outputs/signature_temp.txt
 	python3 scripts/checkduplicates.py outputs/signature_temp.txt
 

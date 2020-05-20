@@ -1,0 +1,21 @@
+VCD info: dumpfile circular_bist_test.vcd opened for output.
+Current vector: 0101
+Circuit output: 4
+Current vector: 1011
+Circuit output: 8
+Current vector: 0110
+Circuit output: 4
+Current vector: 1100
+Circuit output: 8
+Current vector: 1101
+Circuit output: 8
+Current vector: 0001
+Circuit output: 1
+Current vector: 0001
+Circuit output: 1
+Current vector: 1110
+Circuit output: 8
+Current vector: 0111
+Circuit output: 4
+Current vector: 0010
+Circuit output: 2

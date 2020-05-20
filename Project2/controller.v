@@ -94,7 +94,7 @@ always @ (posedge clk) begin
 end
 
 wire latch_c;
-assign latch_c = start ^ (reset);
+assign latch_c = start ^ reset;
 
 always @ (posedge start) begin
 	if(latch_c) begin

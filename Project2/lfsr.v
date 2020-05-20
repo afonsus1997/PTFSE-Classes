@@ -2,12 +2,13 @@
 
 module lfsr #
 (   
-    parameter NBIT = 4
+    parameter NBIT = 4,
+    parameter SEED = 4'b1111
 ) (
     input clk,
     input rst,
     input scan_in,
-    input [3:0] seed, //this should be replaced after testing with a parameter
+    // input [3:0] seed, //this should be replaced after testing with a parameter
     output [3:0] out,
     output scan_out
 );
@@ -27,7 +28,7 @@ module lfsr #
 
     always @ (posedge clk) begin
         if(rst) begin
-            dff <= seed;
+            dff <= SEED;
         end
         else begin
             dff <= {dff[NBIT-2:0], dff[3] ^ dff[2] ^ scan_in};
