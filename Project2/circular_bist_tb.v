@@ -3,9 +3,10 @@
 module circular_bist;
 
 //=====SET PARAM=====
+`define getfaultcoverage
 // `define getvalidsignature
 // `define multiple_runs
-`define lfsr_check
+// `define lfsr_check
 parameter NTESTRUNS = 5;
 //=====END PARAM=====
 
@@ -46,6 +47,23 @@ parameter NTESTRUNS = 5;
     end
 
     initial begin
+        //one normal run to get the signature
+        `ifdef getfaultcoverage
+        #1;
+        reset = 1;
+        #3
+        reset = 0;
+        wait (!clock);
+        bist_start_r = 1;
+        #3
+        bist_start_r = 0;
+        wait (bist_end_w);
+        $display("Output signature: %h" ,signature_out_w);
+        #10
+        wait(!clock);
+    `endif
+
+
         //one normal run to get the signature
         `ifdef getvalidsignature
         #1;
