@@ -4,11 +4,11 @@ module lfsrmux #
 (
     parameter NBIT = 4     
 ) (
-    input [NBIT-1:0] in,
-    input [NBIT-1:0] lfsr,
+    input [4-1:0] in,
+    input [4-1:0] lfsr,
     input mode,
 
-    output reg [NBIT-1:0] outport
+    output reg [4-1:0] outport
 );
 
 

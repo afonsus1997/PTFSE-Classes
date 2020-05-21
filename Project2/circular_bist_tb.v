@@ -21,10 +21,10 @@ parameter NTESTRUNS = 5;
     wire pass_fail_w;
     wire [15:0] signature_out_w;
 
-    wire request_in_r0;
-    wire request_in_r1;
-    wire request_in_r2;
-    wire request_in_r3;
+    reg request_in_r0;
+    reg request_in_r1;
+    reg request_in_r2;
+    reg request_in_r3;
 
     reg bist_start_r;
     wire [3:0] grant_o_r;
@@ -63,7 +63,32 @@ parameter NTESTRUNS = 5;
     initial begin
         //one normal run to get the signature
         `ifdef getfaultcoverage
-        #1000;
+        request_in_r0 = 0;
+        request_in_r1 = 0;
+        request_in_r2 = 0;
+        request_in_r3 = 0;
+        bist_start_r = 0;
+        #10000
+        reset = 1;
+        #30000
+        reset = 0;
+        wait (!clock);
+        bist_start_r = 1;
+        #30000
+        bist_start_r = 0;
+        wait (bist_end_w);
+        #10000
+        $display("Output signature: %h" ,signature_out_w);
+        $display("Pass/fail: %b" , pass_fail_w);
+        #100000
+        wait(!clock);
+        // $finish;
+        `endif
+
+
+        //one normal run to get the signature
+        `ifdef getvalidsignature
+        #100;0
         reset = 1;
         #3000
         reset = 0;
@@ -75,40 +100,22 @@ parameter NTESTRUNS = 5;
         $display("Output signature: %h" ,signature_out_w);
         #10000
         wait(!clock);
-        $finish;
-        `endif
-
-
-        //one normal run to get the signature
-        `ifdef getvalidsignature
-        #100;
-        reset = 1;
-        #300
-        reset = 0;
-        wait (!clock);
-        bist_start_r = 1;
-        #300
-        bist_start_r = 0;
-        wait (bist_end_w);
-        $display("Output signature: %h" ,signature_out_w);
-        #1000
-        wait(!clock);
         `endif
 
         // multiple consecutive runs
         `ifdef multiple_runs
         for(runs = 0; runs<=NTESTRUNS; runs=runs+1) begin
-            #1000
+            #10000
             reset = 1;
-            #3000
+            #30000
             reset = 0;
             wait (!clock);
             bist_start_r = 1;
-            #3000
+            #30000
             bist_start_r = 0;
             wait (bist_end_w);
             $display("Output signature: %h" ,signature_out_w);
-            #10000
+            #100000
             wait(!clock);
         end
         $finish;
@@ -117,17 +124,17 @@ parameter NTESTRUNS = 5;
 
         `ifdef lfsr_check
         for(in_seed = 4'b0001; in_seed<=4'b1111; in_seed=in_seed+1) begin
-            #1000
+            #10000
             reset = 1;
-            #3000
+            #30000
             reset = 0;
             wait (!clock);
             bist_start_r = 1;
-            #3000
+            #30000
             bist_start_r = 0;
             wait (bist_end_w);
             $display("Output signature: %h" ,signature_out_w);
-            #10000
+            #100000
             wait(!clock);
         end
         $finish;
@@ -136,11 +143,12 @@ parameter NTESTRUNS = 5;
         `ifdef vectest
         $readmemb("circuito06.vec", pattern_mem);
         for(index = 0; index<=9; index=index+1) begin
-            #1;
+            #10000;
             reset = 1;
-            #3
+            #30000
             reset = 0;
-            #11
+            // #100000
+            wait (grant_o_r != 0);
             $display("Current vector: %b" ,pattern_mem[index]);
             $display("Circuit output: %h" ,grant_o_r);
             wait(!clock);
@@ -150,16 +158,16 @@ parameter NTESTRUNS = 5;
         `endif
 
         `ifdef unique_sigs
-            #1000;
+            #10000;
             reset = 1;
-            #3000
+            #30000
             reset = 0;
             wait (!clock);
             bist_start_r = 1;
-            #3000
+            #30000
             bist_start_r = 0;
             wait (bist_end_w);
-            #10000
+            #100000
             wait(!clock);
         $finish;
         `endif
@@ -190,10 +198,10 @@ parameter NTESTRUNS = 5;
 
 
     initial begin
-        #10000000 $finish;
+        #100000000 $finish;
     end
 
     always
-        #1000  clock =  ! clock;
+        #10000  clock =  ! clock;
 
 endmodule

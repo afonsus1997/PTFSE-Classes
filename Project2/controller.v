@@ -23,7 +23,7 @@ parameter NCLOCK = 650; //650 for group 2
 parameter NCLOCK = 10; //this needs to be commented in order to generate code coverage. Xcellium does not recognize define parameters
 `endif
 
-reg [$clog2(NCLOCK):0] ncounter;
+reg [$clog2(650):0] ncounter;
 reg complete;
 reg toggle_r;
 reg reset_latch;
@@ -49,7 +49,7 @@ always @(*) begin
 		INIT_s:
 			next_state = RUNNING_s;
 		RUNNING_s:
-			if(ncounter == NCLOCK)
+			if(ncounter == 650)
 				next_state = FINISH_s;
 			else
 				next_state = RUNNING_s;
@@ -61,7 +61,7 @@ always @(*) begin
 end
 
 assign init     = (state == INIT_s);
-assign running  = (state == RUNNING_s) & (ncounter < NCLOCK);
+assign running  = (state == RUNNING_s) & (ncounter < 650);
 assign finish   = (state == FINISH_s); 
 // assign bist_end = (complete) & !(reset | start) ;
 assign toggle   = (state == RUNNING_s) & toggle_r;
@@ -72,7 +72,7 @@ always @ (posedge clk) begin
 		ncounter <= 0;
 	end	
 	else if(state == RUNNING_s) begin
-		if(ncounter < NCLOCK-1) begin
+		if(ncounter < 650-1) begin
 			toggle_r <= !toggle_r;
 		end
 		else begin

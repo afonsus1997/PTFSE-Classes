@@ -31,6 +31,9 @@ module top #
     wire bist_running_w;
     wire [15:0] signature_w;
     wire init_w;
+    wire module_reset_w;
+
+    assign module_reset_w = reset | init_w;
 
     assign request_bus_w[0] = request1;
     assign request_bus_w[1] = request2;
@@ -39,8 +42,9 @@ module top #
 
     assign grant_o = misr_grant_o_w;
 
-    assign pass_fail = (signature_w == SIGNATURE_VALID) & bist_end;
+    assign pass_fail = (signature_w == 16'h6BD2) & bist_end;
     assign signature_out = signature_w;
+    
 
     controller bist_controller(
         .clk(clock),
@@ -61,16 +65,16 @@ module top #
 
     lfsr bist_lfsr(
         .clk(clock),
-        .rst(init_w),
+        .rst(module_reset_w),
         // .seed(lfsr_seed),
         .out(lsfr_in_bus_w),
         .scan_in(misr_scan_w),
         .scan_out(lfsr_scan_w)
     );
 
-    circuito06 uut(
+    circuito06 main(
         .clock(clock), 
-        .reset(reset | init_w), 
+        .reset(module_reset_w), 
         .request1(input_mux_out_w[0]), 
         .request2(input_mux_out_w[1]), 
         .request3(input_mux_out_w[2]), 
@@ -83,11 +87,12 @@ module top #
 
     misr bist_misr(
         .clk(clock),
-        .rst(init_w),
+        .rst(module_reset_w),
         .scan_in(uut_scan_w),
         .grant_o(misr_grant_o_w),
         .signature(signature_w),
-        .scan_out(misr_scan_w)
+        .scan_out(misr_scan_w),
+        .finish(bist_end)
     );
 
     

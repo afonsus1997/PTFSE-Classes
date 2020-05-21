@@ -14,7 +14,7 @@ module lfsr #
 );
 
 
-    reg [NBIT-1:0] dff;
+    reg [4-1:0] dff;
 
     assign out[0] = dff[0];
     assign out[1] = dff[1];
@@ -28,10 +28,10 @@ module lfsr #
 
     always @ (posedge clk) begin
         if(rst) begin
-            dff <= SEED;
+            dff <= 4'b1111;
         end
         else begin
-            dff <= {dff[NBIT-2:0], dff[3] ^ dff[2] ^ scan_in};
+            dff <= {dff[4-2:0], dff[3] ^ dff[2] ^ scan_in};
         end
 
     end
