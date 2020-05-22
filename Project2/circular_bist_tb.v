@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+`define misr8_tb
+
 module circular_bist;
 
 //=====SET PARAM=====
@@ -10,6 +12,13 @@ module circular_bist;
 // `define unique_sigs
 // `define vectest
 parameter NTESTRUNS = 5;
+
+`ifdef misr8_tb
+    parameter MISR_BITS = 8;
+`endif
+`ifdef misr16_tb
+    parameter MISR_BITS = 16;
+`endif
 //=====END PARAM=====
 
     integer runs = 0;
@@ -19,7 +28,7 @@ parameter NTESTRUNS = 5;
 
     wire bist_end_w;
     wire pass_fail_w;
-    wire [15:0] signature_out_w;
+    wire [MISR_BITS-1:0] signature_out_w;
 
     reg request_in_r0;
     reg request_in_r1;

@@ -1,7 +1,17 @@
+// `define misr16_top
+`define misr8_top
 
 module top #
 (
-    parameter SIGNATURE_VALID = 16'h6BD2
+    `ifdef misr8_top
+    parameter SIGNATURE_VALID = 8'hF9,
+    parameter MISR_BITS = 8
+    `endif
+
+    `ifdef misr16_top
+    parameter SIGNATURE_VALID = 16'h6BD2,
+    parameter MISR_BITS = 16
+    `endif
 ) (
     input clock,
     input reset,
@@ -14,7 +24,7 @@ module top #
     // io relevant to the bist controller
     input bist_start,
     output bist_end,
-    output [15:0] signature_out, //for testing purposes only
+    output [MISR_BITS-1:0] signature_out, //for testing purposes only
     output pass_fail
 );
     
@@ -29,7 +39,7 @@ module top #
     wire uut_scan_w;
     wire scan_toggle_w;
     wire bist_running_w;
-    wire [15:0] signature_w;
+    wire [MISR_BITS-1:0] signature_w;
     wire init_w;
     wire module_reset_w;
 
@@ -42,7 +52,7 @@ module top #
 
     assign grant_o = misr_grant_o_w;
 
-    assign pass_fail = (signature_w == 16'h6BD2) & bist_end;
+    assign pass_fail = (signature_w == SIGNATURE_VALID) & bist_end;
     assign signature_out = signature_w;
     
 
