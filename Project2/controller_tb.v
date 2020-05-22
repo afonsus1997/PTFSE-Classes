@@ -4,9 +4,9 @@
 //===========SET TEST==========
 // `define normal
 // `define consequent_test
-`define consequent_test_reset
+// `define consequent_test_reset
 // `define mid_start
-// `define start_reset
+`define start_reset
 // `define mid_reset
 
 //==========SET NCLOCK========

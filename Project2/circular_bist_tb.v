@@ -68,20 +68,20 @@ parameter NTESTRUNS = 5;
         request_in_r2 = 0;
         request_in_r3 = 0;
         bist_start_r = 0;
-        #10000
+        #5000
         reset = 1;
-        #30000
+        #15000
         reset = 0;
-        wait (!clock);
+        #15000
         bist_start_r = 1;
-        #30000
+        #15000
         bist_start_r = 0;
         wait (bist_end_w);
         #10000
         $display("Output signature: %h" ,signature_out_w);
         $display("Pass/fail: %b" , pass_fail_w);
         #100000
-        wait(!clock);
+        wait(!clock)
         // $finish;
         `endif
 

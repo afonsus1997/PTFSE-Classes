@@ -32,7 +32,7 @@ always @ (posedge clk) begin
 	if(reset) begin
 		state       <= IDLE;
 	end
-	else if(start & (state == IDLE) & !reset_latch) begin
+	else if(start & (state == IDLE)) begin //disabled reset latch & !reset_latch
 		state       <= START;
 	end
 	else
@@ -88,14 +88,13 @@ always @ (negedge finish, posedge start, posedge reset) begin
 	
 end
 
-always @ (posedge start) begin
-	if(start & !(reset)) begin
-		reset_latch <= 0;
-	end
-	else begin
+always @ (posedge clk) begin
+	if(start & reset) begin
 		reset_latch <= 1;
 	end
-
+	else if (start) begin
+		reset_latch <= 0;
+	end
 end
 
 endmodule // controller

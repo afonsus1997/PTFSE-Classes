@@ -28,11 +28,15 @@ reg complete;
 reg toggle_r;
 reg reset_latch;
 
+wire start_cond_w;
+
+assign start_cond_w = start & (state == IDLE_s) & !reset_latch; 
+
 always @ (posedge clk) begin
 	if(reset) begin
 		state       <= IDLE_s;
 	end
-	else if(start & (state == IDLE_s) & !reset_latch) begin
+	else if(start_cond_w) begin 
 		state       <= START_s;
 	end
 	else
@@ -90,13 +94,15 @@ always @ (posedge clk) begin
 		bist_end <= 0;
 	else if(state == FINISH_s)
 		bist_end <= 1;
+	else 
+		bist_end <= 0;
 	
 end
 
 wire latch_c;
-assign latch_c = start ^ reset;
+assign latch_c = start & reset;
 
-always @ (posedge start) begin
+always @ (posedge clk) begin
 	if(latch_c) begin
 		reset_latch <= 1;
 	end
