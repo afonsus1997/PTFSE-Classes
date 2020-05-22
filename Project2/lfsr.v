@@ -1,4 +1,4 @@
-// parameter seeed = 4'b1111;
+parameter seed = 4'b1111;
 
 module lfsr #
 (   
@@ -9,12 +9,12 @@ module lfsr #
     input rst,
     input scan_in,
     // input [3:0] seed, //this should be replaced after testing with a parameter
-    output [3:0] out,
+    output [NBIT-1:0] out,
     output scan_out
 );
 
 
-    reg [4-1:0] dff;
+    reg [NBIT-1:0] dff;
 
     assign out[0] = dff[0];
     assign out[1] = dff[1];
@@ -28,7 +28,7 @@ module lfsr #
 
     always @ (posedge clk) begin
         if(rst) begin
-            dff <= 4'b1111;
+            dff <= SEED;
         end
         else begin
             dff <= {dff[4-2:0], dff[3] ^ dff[2] ^ scan_in};
