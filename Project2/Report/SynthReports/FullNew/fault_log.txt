@@ -1,0 +1,1336 @@
+# Elaborate
+xrun -clean -elaborate\
+ 		-define functional\
+	-fault_file fault.file\
+	-fault_top top\
+	-fault_logfile fault_xrun_elab.log\
+	-v /opt/ic_tools/pdk/ams_c35_410/verilog/udp.v\
+	-v /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v\
+	top_syn.v\
+	circular_bist_tb.v
+TOOL:	xrun	19.03-s013: Started on May 28, 2020 at 20:08:07 WEST
+xrun: 19.03-s013: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+xrun: *N,CLEAN: Removing existing directory ./xcelium.d.
+file: top_syn.v
+	module worklib.top:v
+		errors: 0, warnings: 0
+file: circular_bist_tb.v
+	module worklib.circular_bist:v
+		errors: 0, warnings: 0
+file: /opt/ic_tools/pdk/ams_c35_410/verilog/udp.v
+file: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v
+	module c35_CORELIB.ADD22:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.AOI211:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.AOI2111:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.AOI221:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.AOI311:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.CLKIN2:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.CLKIN3:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.DF3:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.DFS1:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.DFSC1:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.DFSEC1:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.IMUX20:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.IMUX21:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.IMUX30:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.INV2:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.INV3:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.MUX22:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NAND22:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NAND30:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NAND31:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NAND40:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NOR20:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NOR21:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NOR31:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.NOR40:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.OAI211:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.OAI2111:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.OAI212:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.OAI222:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.OAI311:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.TFSC1:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.XNR21:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.XNR31:v
+		errors: 0, warnings: 0
+	module c35_CORELIB.XOR31:v
+		errors: 0, warnings: 0
+file: /opt/ic_tools/pdk/ams_c35_410/verilog/udp.v
+	primitive udp.U_FD_P_NO:v
+		errors: 0, warnings: 0
+	primitive udp.U_FD_P_RB_NO:v
+		errors: 0, warnings: 0
+	primitive udp.U_MUX_2_1:v
+		errors: 0, warnings: 0
+	primitive udp.U_MUX_2_1_INV:v
+		errors: 0, warnings: 0
+	primitive udp.U_MUX_3_2_INV:v
+		errors: 0, warnings: 0
+	primitive udp.U_dfsec_Q:v
+		errors: 0, warnings: 0
+	primitive udp.U_tfsc_Q:v
+		errors: 0, warnings: 0
+xmelab: *N,FLTOVR: [FLT] An existing fault directory (fault_db) has been overwritten.
+		Caching library 'c35_CORELIB' ....... Done
+		Caching library 'worklib' ....... Done
+		Caching library 'udp' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		circular_bist
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.circular_bist:v <0x4cc71bc9>
+			streams:  13, words:  6454
+		c35_CORELIB.DFSEC1:v <0x51b1b601>
+			streams:   1, words:   102
+		c35_CORELIB.DFSEC1:v <0x00ea2b72>
+			streams:   1, words:   102
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:               231      36
+		UDPs:                  101       7
+		Primitives:            306       8
+		Registers:               9      13
+		Scalar wires:           21       -
+		Always blocks:           1       1
+		Initial blocks:          5       5
+		Pseudo assignments:     19       9
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.circular_bist:v
+xmelab: *N,FTUMPT: [FLT] Fault database model file is generated at /afs/.ist.utl.pt/users/7/9/ist426079/PTFSE/P2/fault_db/db_scope/xfs_7bba34b2.ucm.
+TOOL:	xrun	19.03-s013: Exiting on May 28, 2020 at 20:08:08 WEST  (total: 00:00:01)
+# Generate the fault list
+xfsg -fault_type SA0+SA1\
+	-fault_list fault_list\
+	-fault_work fault_db
+xfsg: 19.03-s013: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+xfsg: *N,TFLTINF: Total number of faults generated for type "SA0+SA1" is: 592.
+# Remove UNCONNECTED signals (e.g. outputs of FFs)
+sed '/UNCONNECTED/d' -i fault_list_1.tcl
+# Perform fault simulation
+xrun -R -fault_concurrent\
+	-nospecify -notimingchecks -delay_mode zero -run -exit\
+	-define functional\
+	-input strobes.tcl\
+	-input fault_list_1.tcl\
+	-fault_logfile fault_xrun_sim.log
+TOOL:	xrun	19.03-s013: Started on May 28, 2020 at 20:08:08 WEST
+xrun: 19.03-s013: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+Loading snapshot worklib.circular_bist:v .................... Done
+xcelium> source /opt/ic_tools/cad/xcelium19_03_hf013/tools/xcelium/files/xmsimrc
+xcelium> #
+xcelium> # Replace ONLY 'uut' by the name of the module instantiated in your testbench
+xcelium> # DO NOT ADD MORE SIGNALS TO THIS LIST
+xcelium> #
+xcelium> fs_strobe {uut.bist_end uut.pass_fail} 
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_52}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.clock}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_84}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.lsfr_in_bus_w[3]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.scan_toggle_w}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda0[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_32}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_87}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda0[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_28}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_89}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda0[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_30}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_105}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda1[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_50}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_107}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda1[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_48}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_106}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda1[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_46}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_110}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda2[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_44}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_111}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda2[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_42}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_108}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda2[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_40}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_103}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda3[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_36}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_102}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda3[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_34}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_104}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_coda3[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_38}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_ru1}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_73}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_fu1}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_14}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_ru2}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_fu2}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_18}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_ru3}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_fu3}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_12}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_ru4}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_fu4}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_16}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_63}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_98}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.grant_o[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_26}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_59}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.grant_o[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_24}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_60}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.grant_o[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_22}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_61}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.grant_o[3]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_20}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.input_mux_out_w[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_stato[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_8}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.input_mux_out_w[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_10}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.input_mux_out_w[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_6}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.input_mux_out_w[3]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_4}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_n_0}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.main_stato[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.uut_scan_w}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_171}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_163}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.request4}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_161}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_162}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.request1}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.lsfr_in_bus_w[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.request3}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.lsfr_in_bus_w[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.request2}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.lsfr_in_bus_w[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_143}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_159}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_160}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_n_114}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_158}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_142}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_157}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_151}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_155}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[9]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_145}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_152}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_149}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.pass_fail}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.reset}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_166}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_173}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_153}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_169}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_154}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_toggle_r}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[10]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_167}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[4]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[5]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[7]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[7]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_end}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_144}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_state[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_state[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_146}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_150}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[2]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[3]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[3]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[4]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[5]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.signature_out[6]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_148}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[8]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_147}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_168}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_state[1]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[6]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_140}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_47}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_139}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_43}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_68}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_138}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_137}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_136}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_135}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_131}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_134}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_133}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_132}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_129}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_130}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_127}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_128}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_126}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_125}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_124}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_123}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_122}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_119}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_115}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_121}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_120}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_118}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_48}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_117}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_114}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_113}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_116}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_112}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_110}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_98}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_111}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_109}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_105}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_108}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_107}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_44}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_106}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_104}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_99}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_101}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_102}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_100}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_103}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_64}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_70}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_97}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_96}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_95}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_42}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_94}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_45}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_56}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_82}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_90}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_87}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_91}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_92}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_93}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_84}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_67}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_89}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_86}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_88}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_85}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_51}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_80}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_74}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_75}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_77}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_81}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_controller_ncounter[0]}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_46}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_53}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_76}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_78}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_79}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_58}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_55}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_66}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_83}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_72}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_49}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_71}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_73}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.bist_start}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_59}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_54}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_69}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_61}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_62}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_60}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_57}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_63}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_65}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_50}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_35}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_9}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_27}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_34}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_1}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_33}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_7}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_37}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_4}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_39}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_2}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_36}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_3}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_41}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_40}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_38}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_30}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_29}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_28}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_31}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_24}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_32}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_23}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_26}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_19}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_22}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_21}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_14}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_25}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_18}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_20}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_15}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_13}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_6}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_16}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_17}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_10}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_11}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_8}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_5}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_12}
+xcelium> fault -inject -time 0 -type SA0 {circular_bist.uut.n_0}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_52}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.clock}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_84}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.lsfr_in_bus_w[3]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.scan_toggle_w}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda0[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_32}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_87}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda0[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_28}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_89}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda0[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_30}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_105}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda1[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_50}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_107}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda1[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_48}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_106}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda1[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_46}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_110}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda2[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_44}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_111}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda2[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_42}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_108}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda2[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_40}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_103}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda3[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_36}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_102}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda3[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_34}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_104}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_coda3[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_38}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_ru1}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_73}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_fu1}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_14}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_ru2}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_fu2}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_18}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_ru3}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_fu3}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_12}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_ru4}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_fu4}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_16}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_63}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_98}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.grant_o[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_26}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_59}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.grant_o[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_24}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_60}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.grant_o[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_22}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_61}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.grant_o[3]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_20}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.input_mux_out_w[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_stato[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_8}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.input_mux_out_w[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_10}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.input_mux_out_w[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_6}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.input_mux_out_w[3]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_4}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_n_0}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.main_stato[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.uut_scan_w}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_171}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_163}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.request4}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_161}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_162}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.request1}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.lsfr_in_bus_w[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.request3}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.lsfr_in_bus_w[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.request2}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.lsfr_in_bus_w[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_143}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_159}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_160}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_n_114}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_158}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_142}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_157}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_151}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_155}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[9]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_145}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_152}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_149}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.pass_fail}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.reset}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_166}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_173}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_153}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_169}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_154}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_toggle_r}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[10]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_167}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[4]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[5]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[7]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[7]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_end}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_144}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_state[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_state[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_146}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_150}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[2]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[3]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[3]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[4]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[5]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.signature_out[6]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_148}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[8]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_147}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_168}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_state[1]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[6]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_140}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_47}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_139}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_43}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_68}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_138}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_137}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_136}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_135}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_131}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_134}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_133}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_132}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_129}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_130}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_127}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_128}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_126}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_125}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_124}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_123}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_122}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_119}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_115}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_121}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_120}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_118}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_48}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_117}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_114}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_113}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_116}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_112}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_110}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_98}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_111}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_109}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_105}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_108}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_107}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_44}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_106}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_104}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_99}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_101}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_102}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_100}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_103}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_64}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_70}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_97}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_96}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_95}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_42}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_94}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_45}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_56}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_82}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_90}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_87}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_91}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_92}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_93}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_84}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_67}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_89}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_86}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_88}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_85}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_51}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_80}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_74}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_75}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_77}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_81}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_controller_ncounter[0]}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_46}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_53}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_76}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_78}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_79}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_58}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_55}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_66}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_83}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_72}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_49}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_71}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_73}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.bist_start}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_59}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_54}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_69}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_61}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_62}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_60}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_57}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_63}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_65}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_50}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_35}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_9}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_27}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_34}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_1}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_33}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_7}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_37}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_4}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_39}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_2}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_36}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_3}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_41}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_40}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_38}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_30}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_29}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_28}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_31}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_24}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_32}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_23}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_26}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_19}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_22}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_21}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_14}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_25}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_18}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_20}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_15}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_13}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_6}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_16}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_17}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_10}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_11}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_8}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_5}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_12}
+xcelium> fault -inject -time 0 -type SA1 {circular_bist.uut.n_0}
+xcelium> run
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_n_114 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_n_114 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_146 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_n_114 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_154 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_146 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.bist_end) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.pass_fail) at strobe point (circular_bist.uut.pass_fail) at time 10 US.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.clock of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.clock of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.reset of type SA0 marked NOT_SIMULATABLE.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA0 fault (circular_bist.uut.n_68) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA1 fault (circular_bist.uut.n_82) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA1 fault (circular_bist.uut.clock) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA0 fault (circular_bist.uut.clock) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA0 fault (circular_bist.uut.reset) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_56) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA1 fault (circular_bist.uut.n_50) at strobe point (circular_bist.uut.bist_end) at time 10 US.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_146 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_103 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_n_114 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_70 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_82) at strobe point (circular_bist.uut.bist_end) at time 30 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_94) at strobe point (circular_bist.uut.bist_end) at time 30 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_68) at strobe point (circular_bist.uut.bist_end) at time 30 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_50) at strobe point (circular_bist.uut.bist_end) at time 30 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_45) at strobe point (circular_bist.uut.bist_end) at time 30 US.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_64 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_144 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_108 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_107 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_51 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_166 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_87 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_117 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_121 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_start of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_117 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_121 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_70 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_start of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_toggle_r of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_117 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_121 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_148 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_163 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_144 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_136 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_108 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_107 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_44 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_start of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_171 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_166 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_132 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_121 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_110 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_57 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.reset of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_167 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_117 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_103 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_64 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_148 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_87 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_51 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_79 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_163 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_state of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_144 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_136 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_108 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_107 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_44 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_start of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_171 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_166 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_132 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_121 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_110 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_80 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_57 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.reset of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_167 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_117 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_103 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_64 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_110 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_128 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_119 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_115 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_98 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_84 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_83 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_152) at strobe point (circular_bist.uut.pass_fail) at time 990 US.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_169 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_54 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_138 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_131 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_140 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_47 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_147 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_168 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_67 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_116 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_137 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_127 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_133 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_43 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_135 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_139 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_129 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_99 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_125 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_113 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_120 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_109 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_130 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_134 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_123 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_114 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_118 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_105 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_48 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_112 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_111 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_59 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_106 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_85 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_97 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_95 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_81 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_66 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_111 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_59 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_106 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_85 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_97 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_95 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_81 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_66 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_96 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_124 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_104 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_153 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_173 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_155 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_126 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_90 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_69 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_63 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_46 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_42 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_53 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_168 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_97 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_84 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_67 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_131 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_127 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_126 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_125 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_124 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_85 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_59 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_147 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_43 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_135 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_47 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_120 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_48 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_116 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_112 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_109 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_106 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_118 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_114 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_98 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_111 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_105 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_66 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.bist_controller_ncounter of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_140 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_139 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_137 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_134 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_129 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_123 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_119 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_115 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_113 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_99 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_96 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_95 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_81 of type SA0 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_169 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_138 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_133 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_130 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *W,FLTRTL: [FLT] Net circular_bist.uut.g1845.Q has an RTL load (File: /opt/ic_tools/pdk/ams_c35_410/verilog/c35b4/c35_CORELIB.v Line: 2453). Fault circular_bist.uut.n_83 of type SA1 marked NOT_SIMULATABLE.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.bist_end) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.pass_fail) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_22) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_61) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.grant_o[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_fu3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda1[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_91) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_92) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_89) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_93) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_86) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_88) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_74) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.lsfr_in_bus_w[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_143) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.lsfr_in_bus_w[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.lsfr_in_bus_w[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_ru4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.grant_o[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_24) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.grant_o[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_159) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_158) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_107) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_fu4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_16) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_63) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[4]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[5]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[6]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_102) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_91) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_93) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_89) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_86) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_88) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_74) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_75) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_77) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_72) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_71) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_73) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_61) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_62) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_60) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_27) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_33) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_7) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_36) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_41) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_40) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_38) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_30) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_29) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_24) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_26) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_19) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_22) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_21) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_14) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_18) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_20) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_15) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_13) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_6) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_17) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_10) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_11) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_5) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_0) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_fu4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_63) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.input_mux_out_w[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.grant_o[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.grant_o[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_162) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_60) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.lsfr_in_bus_w[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.grant_o[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.input_mux_out_w[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.input_mux_out_w[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_8) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_10) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.input_mux_out_w[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_6) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_0) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_stato[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.uut_scan_w) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_149) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.lsfr_in_bus_w[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.lsfr_in_bus_w[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_143) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[4]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[6]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[7]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.signature_out[5]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.input_mux_out_w[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.input_mux_out_w[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_stato[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_8) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_10) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.input_mux_out_w[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_101) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_ru2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.grant_o[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_26) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_39) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_38) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_30) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_29) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_31) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_23) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_26) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_22) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_14) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_21) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_20) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_25) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_18) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_13) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_6) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_16) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_10) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_8) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_0) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_84) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.scan_toggle_w) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_32) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_87) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_89) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda0[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda1[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_105) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_30) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_50) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_107) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda1[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_106) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda1[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda2[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_110) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda0[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_44) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_111) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda2[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_103) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_34) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda3[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_ru1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_73) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_fu1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_ru2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_18) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_ru3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_fu3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda3[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_16) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_102) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda3[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_26) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_59) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_38) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_24) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.grant_o[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_61) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_stato[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_18) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_ru3) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_42) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_fu1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_14) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_77) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_78) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_76) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_72) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_71) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_73) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_62) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_60) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_9) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_34) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_33) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_7) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.input_mux_out_w[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_0) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_stato[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.uut_scan_w) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_52) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_84) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_108) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.lsfr_in_bus_w[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.scan_toggle_w) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda0[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_32) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_87) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda0[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_28) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_89) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda0[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_30) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_105) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda1[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_50) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_48) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_106) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda1[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_46) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_110) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda2[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_44) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_111) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda2[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda2[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_40) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_103) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda3[0]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_36) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_102) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda3[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_34) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_104) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_coda3[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_38) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_ru1) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_73) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_fu2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_12) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_98) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_59) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_60) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_20) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.main_n_6) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_161) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_162) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_142) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_157) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_145) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.signature_out[7]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_150) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_102) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_100) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_75) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_58) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_55) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_49) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_61) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_35) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_27) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_37) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_36) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_41) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_40) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_28) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_24) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_32) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_19) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_15) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_17) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_11) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_5) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_12) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTPDT: [FLT] Potentially detected SA1 fault (circular_bist.uut.n_52) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.lsfr_in_bus_w[3]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda0[1]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_28) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_48) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_46) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_42) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_108) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_coda2[2]) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_40) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_36) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_104) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_14) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_fu2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_12) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_ru4) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_98) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_22) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.main_n_20) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_159) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_160) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_142) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_157) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_151) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_145) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_152) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_101) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_100) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_92) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_76) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_78) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_58) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_49) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_35) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_9) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_34) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_37) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_39) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_2) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_28) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_31) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_32) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_23) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_25) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_16) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_8) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_12) at strobe point (circular_bist.uut.pass_fail) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_94) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_45) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_80) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_54) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_69) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_79) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_63) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_65) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA0 fault (circular_bist.uut.n_56) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+xmsim: *N,FLTDT: [FLT] Detected SA1 fault (circular_bist.uut.n_57) at strobe point (circular_bist.uut.bist_end) at time 13130 US.
+Output signature: f9
+Pass/fail: 1
+xmsim: *N,FTUDPT: [FLT] Fault database data file is generated at /afs/.ist.utl.pt/users/7/9/ist426079/PTFSE/P2/fault_db/db_scope/test_fatima.novalocal_84041590692915727/xfs_7bba34b2.ucd.
+Simulation complete via $finish(1) at time 13240 US + 0
+./circular_bist_tb.v:100         $finish;
+xcelium> exit
+xmsim: *N,FLTVWT: WRITE: Writing vSof /afs/.ist.utl.pt/users/7/9/ist426079/PTFSE/P2/fault_db/db_scope/test_fatima.novalocal_84041590692915727/xfs.vsof.
+TOOL:	xrun	19.03-s013: Exiting on May 28, 2020 at 20:08:36 WEST  (total: 00:00:28)
+# Generate the report
+xfr -fault_work fault_db\
+	-fault_format equiv\
+	-fault_report fault_report.txt\
+	-log xfr.log
+xfr: 19.03-s013: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+The merged fault report is written to file 'fault_report.txt'
+
+
+Fault Injection Summary:
+    Multiplicity: 1
+    Total number of faults: 592/592 (total/prime)
+    Number of fault runs: 1
+    Number of faults injected: 560
+        SA0(280), SA1(280), SEU(0), SET(0)
+    Expected finish time: 13240us
+        ON_TIME(209), DELAYED(0), PREMATURE(0), TIMEOUT(0), STOPPED(351), UNKNOWN(0)
+
+
+Stuck-At (0/1) Fault Table
+			 Total #	 Prime #
+Untestable		      0		      0
+Detected		    344		    344
+Potentially_detected	      7		      7
+Undetected		     36		     36
+Unobserved_detected	      0		      0
+Unobserved_undetected	      0		      0
+Dangerous_detected	      0		      0
+Dangerous_undetected	      0		      0
+Not_simulatable		    173		    173
+Not_injected		     32		     32
+Total			    592		    592
+
+

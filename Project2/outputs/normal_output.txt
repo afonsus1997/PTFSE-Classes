@@ -1,0 +1,7 @@
+VCD info: dumpfile circular_bist_test.vcd opened for output.
+Output signature: f9
+Pass/fail: 1
+Output signature: f9
+Pass/fail: 1
+Output signature: f9
+Pass/fail: 1

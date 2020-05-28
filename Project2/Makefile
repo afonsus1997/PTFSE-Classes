@@ -13,7 +13,8 @@ lfsr_test_wave:
 
 misr_test:
 	@iverilog misr_test_tb.v misr.v -o misr_test.out
-	@./misr_test.out 
+	@./misr_test.out > outputs/signature_temp.txt
+	@python3 scripts/checkduplicates.py outputs/signature_temp.txt
 	
 
 misr_test_wave:
